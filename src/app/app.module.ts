@@ -16,14 +16,18 @@ import { MatToolbarModule,
 import { ProjectsComponent } from './projects/projects.component';
 import { TabComponent } from './tab/tab.component';
 import { HeaderComponent } from './header/header.component';
+import { ProjectsHeaderComponent } from './projects/projects-header/projects-header.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { RouterModule } from '@angular/router/src/router_module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TabComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectsHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AlertModule.forRoot(),
     MatGridListModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

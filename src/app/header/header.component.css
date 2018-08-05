@@ -23,6 +23,10 @@
   color: white;
 }
 
+img:hover {
+  opacity: 0.5
+}
+
 h1 {
   font-size: 45pt
 }
