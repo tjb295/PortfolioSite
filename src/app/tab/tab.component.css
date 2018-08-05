@@ -6,11 +6,27 @@ mat-card-title {
   font-size: 25pt
 }
 
-img {
+mat-grid-tile img {
   border-radius: 50%;
   border-width: 10px;
   border-color: black;
-  width: 525px;
-  height: 500px
+  width: 70%;
+  height: 70%
 
+}
+
+mat-card-content {
+  height: 100%;
+  overflow: auto;
+}
+
+
+a img {
+  height: 100px;
+  width: 70px;
+}
+
+p {
+  font-family: 'Palatino';
+  font-size: 40pt
 }

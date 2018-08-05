@@ -5,4 +5,10 @@ import {  Component } from '@angular/core';
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.css']
 })
-export class TabComponent {}
+export class TabComponent {
+  public Bio: string;
+
+  constructor() {
+    this.Bio='';
+  }
+}

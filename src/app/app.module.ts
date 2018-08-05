@@ -7,13 +7,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule,
          MatTabsModule,
-         MatCardModule
+         MatCardModule,
+         MatGridListModule,
+         MatButtonModule
 } from '@angular/material';
 
 
 import { ProjectsComponent } from './projects/projects.component';
 import { TabComponent } from './tab/tab.component';
 import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { HeaderComponent } from './header/header.component';
     MatTabsModule,
     MatCardModule,
     AlertModule.forRoot(),
+    MatGridListModule,
+    MatButtonModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

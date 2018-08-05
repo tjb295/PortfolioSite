@@ -3,20 +3,23 @@
     <app-projects></app-projects>
   </mat-tab>
   <mat-tab label='About Me'>
-    <mat-card>
-
-        <div>
-          <img  alt='Graduation from NAU MAy 2018' src='assets/graduation.jpg'>
-        </div>
-        <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-              bred for hunting.
-            </p>
+    <mat-grid-list cols='2' rowHeight='1:1'>
+      <mat-grid-tile>
+        <img  alt='Graduation from NAU MAy 2018' src='assets/graduation.jpg'>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>
+          <mat-card-title>
+            <a href='assets/Back_T_Web_Dev.pdf'>
+              <button mat-stroked-button>Resume</button>
+            </a>
+          </mat-card-title>
+          <mat-card-content>
+            <p>{{ Bio }}</p>
           </mat-card-content>
-
-    </mat-card>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </mat-tab>
   <mat-tab label='Contact'> </mat-tab>
 </mat-tab-group>
