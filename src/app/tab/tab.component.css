@@ -1,0 +1,16 @@
+h1 {
+  color:darkgray
+}
+
+mat-card-title {
+  font-size: 25pt
+}
+
+img {
+  border-radius: 50%;
+  border-width: 10px;
+  border-color: black;
+  width: 525px;
+  height: 500px
+
+}

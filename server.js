@@ -46,7 +46,7 @@ const onListening = () => {
 };
 
 //use 3000 as default is no value set for environment
-const port = normalizePort(process.env.PORT || "3000");
+const port = normalizePort(process.env.PORT || "8080");
 app.set("port", port);
 
 const server = http.createServer(app);

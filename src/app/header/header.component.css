@@ -1,0 +1,37 @@
+/* The hero image */
+.hero-image {
+  /* The image used */
+  background-image: url("https://cdnb.artstation.com/p/assets/images/images/005/544/735/large/daniel-simonavicius-rainy-window-300dpi-4000-samples.jpg?1491848183");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+h1 {
+  font-size: 45pt
+}
+
+p {
+  font-size: 15pt
+}
+
+
+a {
+  margin: 20px;
+}
