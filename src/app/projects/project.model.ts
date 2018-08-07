@@ -1,7 +1,9 @@
 /* Model for Project Type, holds information of a project post */
 export interface Project {
   _id: string;
+  type: string;
   title: string;
+  languages: Array<string>;
   tagline: string;
   overview: string;
   design: string;
