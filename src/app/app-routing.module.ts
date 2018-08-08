@@ -3,11 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ProjectsHeaderComponent } from './projects/projects-header/projects-header.component';
 import { ProjectsComponent } from './projects/projects.component';
-//import different components for mobile and web apps
+import { LoginComponent } from './auth/login.component';
+import { HomeComponent } from './home/home.component';
+import { ProjectSingleComponent } from './projects/project-single/project-single.component';
+/*import different components for mobile and web apps*/
 
 const routes: Routes = [
   {
-    path: 'projects/:type', component: ProjectsComponent
+    path: 'projects/:id', component: ProjectSingleComponent
+  },
+  {
+    path: '', component: HomeComponent
+  },
+  {
+    path: 'login', component: LoginComponent
   }
 ];
 

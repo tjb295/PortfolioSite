@@ -3,13 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AlertModule } from 'ngx-bootstrap';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule,
          MatTabsModule,
          MatCardModule,
          MatGridListModule,
-         MatButtonModule
+         MatButtonModule,
+         MatFormFieldModule,
+         MatProgressSpinnerModule,
+         MatTooltipModule,
+         MatInputModule
 } from '@angular/material';
 
 
@@ -19,7 +25,9 @@ import { HeaderComponent } from './header/header.component';
 import { ProjectsHeaderComponent } from './projects/projects-header/projects-header.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule } from '@angular/router/src/router_module';
-
+import { LoginComponent } from './auth/login.component';
+import { HomeComponent } from './home/home.component';
+import { ProjectSingleComponent } from './projects/project-single/project-single.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +35,10 @@ import { RouterModule } from '@angular/router/src/router_module';
     HeaderComponent,
     TabComponent,
     ProjectsComponent,
-    ProjectsHeaderComponent
+    ProjectsHeaderComponent,
+    LoginComponent,
+    HomeComponent,
+    ProjectSingleComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +50,11 @@ import { RouterModule } from '@angular/router/src/router_module';
     MatGridListModule,
     MatButtonModule,
     AppRoutingModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

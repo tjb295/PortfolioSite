@@ -11,6 +11,7 @@ router.post('', (req, res, next) => {
   const project = new Project({
     type: req.body.type,
     title: req.body.title,
+    languages: req.body.languages,
     tagline: req.body.tagline,
     overview: req.body.overview,
     design: req.body.design,

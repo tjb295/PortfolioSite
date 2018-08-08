@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>
+    Login for Thomas(If you're not Thomas sorry)
+  </mat-card-title>
+  <mat-spinner *ngIf='isLoading'></mat-spinner>
+  <form #LoginForm='ngForm' *ngIf='!isLoading'>
+    <mat-form-field>
+      <input
+        #emailInput='ngModel'
+        name='email'
+        ngModel
+        matInput
+        type='email'
+        placeholder='E-mail'
+        required
+        email
+      >
+      <mat-error></mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+      matInput
+      placeholder="Password"
+      >
+      <mat-error></mat-error>
+    </mat-form-field>
+    <button mat-raised-button > Login </button>
+  </form>
+</mat-card>
