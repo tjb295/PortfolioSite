@@ -3,7 +3,7 @@
     Login for Thomas(If you're not Thomas sorry)
   </mat-card-title>
   <mat-spinner *ngIf='isLoading'></mat-spinner>
-  <form #LoginForm='ngForm' *ngIf='!isLoading'>
+  <form #LoginForm='ngForm' *ngIf='!isLoading' (submit)="onLogin(LoginForm)">
     <mat-form-field>
       <input
         #emailInput='ngModel'
@@ -20,8 +20,13 @@
 
     <mat-form-field>
       <input
+      name='password'
+      ngModel
+      #passwordInput='ngModel'
       matInput
       placeholder="Password"
+      type='password'
+      required
       >
       <mat-error></mat-error>
     </mat-form-field>

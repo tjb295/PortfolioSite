@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 var path = require('path');
 const bodyParser = require('body-parser');
 
-const projectRoute = require('./routes/projects');
+const projectsRoute = require('./routes/projects');
+const usersRoute = require('./routes/auth');
 
 const app = express();
 
@@ -43,5 +44,6 @@ app.use((req, res, next) => {
 app.use('/images', express.static(path.join('backend/images')));
 
 app.use('/api/projects', projectsRoute);
+app.use('api/user', usersRoute);
 
 module.exports = app;

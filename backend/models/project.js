@@ -16,4 +16,4 @@ const projectSchema = mongoose.Schema({
   technologyImg: [String]
 });
 
-module.exports = mongoose.model('Project'. projectSchema);
+module.exports = mongoose.model('Project', projectSchema);
