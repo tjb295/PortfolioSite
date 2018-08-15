@@ -4,8 +4,11 @@ const multer = require('multer');
 
 const router = express.Router();
 
+/*Middleware to authenticate upon requests*/
+const checkAuth = require('../middleware/check-auth');
+
 /*routing for project: POSTs*/
-router.post('', (req, res, next) => {
+router.post('',  (req, res, next) => {
 
 
   const project = new Project({
@@ -24,7 +27,7 @@ router.post('', (req, res, next) => {
     res.status(201).json({
       message: 'Project added successfully',
       project: {
-        ...createdProject,
+        createdProject: createdProject,
         _id: createdProject._id
       }
     });

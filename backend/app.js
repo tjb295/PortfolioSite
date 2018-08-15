@@ -36,14 +36,17 @@ app.use((req, res, next) => {
   next();
 });
 
-/*Get home page at root route */
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+
 
 app.use('/images', express.static(path.join('backend/images')));
 
 app.use('/api/projects', projectsRoute);
-app.use('api/user', usersRoute);
+app.use('/api/user', usersRoute);
+
+
+/*Get home page at root route */
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 module.exports = app;

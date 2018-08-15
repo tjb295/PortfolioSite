@@ -2,11 +2,49 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 
+const jwt = require('jsonwebtoken');
+
 const router = express.Router();
 
 const User = require('../models/user');
 
+router.post('/signup', (req, res, next) => {
+  /*hash the password using bcrypt to keep hidden */
+  console.log(req.body);
+  bcrypt.hash(req.body.password, 10)
+  .then(hash => {
+    const user = new User({
+      email: req.body.email,
+      password: hash
+    });
+
+    /*Create token for logging in if user created successfully*/
+    user.save()
+    .then(result => {
+      console.log(result);
+      const token = jwt.sign(
+        { email: result.email, userId: result._id },
+        'trapping_in_japan_12_is_the_greatest',
+        {expiresIn: '1hr'}
+      );
+      console.log('going well');
+      res.status(201).json({
+        message: 'User created successfully',
+        result: result,
+        token: token
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: 'User could not be created',
+        error: err
+      });
+    });
+  });
+});
+
 router.post('/login', (req, res, next) => {
+  console.log(req);
   /*Query for user*/
   User.findOne({
     email: req.body.email

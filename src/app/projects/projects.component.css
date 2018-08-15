@@ -1,0 +1,18 @@
+mat-card {
+  width: 50%;
+  align-self: center;
+  margin: auto
+}
+
+a {
+  text-decoration: none;
+  color: rgb(46, 11, 46)
+}
+img {
+  max-width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+

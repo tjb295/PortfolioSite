@@ -7,17 +7,50 @@
   <mat-tab label='About Me'>
     <mat-grid-list cols='2' rowHeight='1:1'>
       <mat-grid-tile>
-        <img  alt='Graduation from NAU MAy 2018' src='assets/graduation.jpg'>
+
+        <img  class='profile-img' alt='Graduation from NAU MAy 2018' src='assets/graduation.jpg'>
       </mat-grid-tile>
-      <mat-grid-tile>
+      <mat-grid-tile class='description'>
         <mat-card>
           <mat-card-title>
-            <a href='assets/Back_T_Web_Dev.pdf'>
-              <button mat-stroked-button>Resume</button>
-            </a>
+            About Me
           </mat-card-title>
           <mat-card-content>
-            <p>{{ Bio }}</p>
+            <p> {{ Bio }}</p>
+          </mat-card-content>
+          <mat-card-title>
+            Work History
+          </mat-card-title>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                USGS Astrogeology - System Admin Intern
+              </mat-panel-title>
+              <mat-panel-description>
+                Flagstaff, AZ - June 2016 - June 2018
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list>
+              <mat-list-item>
+                  Scripted dynamic remote software installations used daily on Windows hosts with Python’s
+                  Subnet library invoking PowerShell commands
+              </mat-list-item>
+              <mat-list-item>
+                  Configured and deployed RedHat, Ubuntu builds weekly with Ansible Playbooks to maintain
+                  compliance with frequent DOI security and software rollouts.
+              </mat-list-item>
+              <mat-list-item>
+
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+          <mat-card-content>
+            <mat-card-title>
+              Resume
+            </mat-card-title>
+              <a matTooltip='Resume' href='assets/Back_T_Web_Dev.pdf'>
+                <img class='resume' src='data:image/png;base64,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' alt='Resume'>
+              </a>
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>

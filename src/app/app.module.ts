@@ -5,6 +5,8 @@ import { AlertModule } from 'ngx-bootstrap';
 
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule,
@@ -15,7 +17,9 @@ import { MatToolbarModule,
          MatFormFieldModule,
          MatProgressSpinnerModule,
          MatTooltipModule,
-         MatInputModule
+         MatInputModule,
+         MatExpansionModule,
+         MatListModule
 } from '@angular/material';
 
 
@@ -28,6 +32,9 @@ import { RouterModule } from '@angular/router/src/router_module';
 import { LoginComponent } from './auth/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectSingleComponent } from './projects/project-single/project-single.component';
+import { SignupComponent } from './auth/signup/singup.component';
+import { AuthInterceptor } from './auth/auth-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +46,7 @@ import { ProjectSingleComponent } from './projects/project-single/project-single
     LoginComponent,
     HomeComponent,
     ProjectSingleComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -54,9 +62,12 @@ import { ProjectSingleComponent } from './projects/project-single/project-single
     MatProgressSpinnerModule,
     MatTooltipModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    MatExpansionModule,
+    MatListModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
