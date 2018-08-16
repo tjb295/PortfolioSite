@@ -1,14 +1,26 @@
 <div class="hero-image">
-  <a RouterLink='/'>
   <div class="hero-text">
-      <h1>Thomas Back</h1>
+      <a href='' routerLink='/' style='text-decoration: none'>
+        <h1>Thomas Back</h1>
+      </a>
       <p>Software Engineer / Web Developer</p>
       <a matTooltip='Github.com' href='https://github.com/tjb295'>
           <img src='assets/GitHub-Mark-Light-64px.png'>
       </a>
       <a matTooltip='LinkedIn' href='https://www.linkedin.com/in/thomas-back-91ba6065/'>
-        <img style='width:3.9rem' src='assets/In-White-66px-TM.png'>
+        <img style='width:12%' src='assets/In-White-66px-TM.png'>
     </a>
+      <div
+        *ngIf='userIsAuthenticated'
+        class='admin'>
+        <a href= '' routerLink='/console'>
+          AdminConsole
+        </a>
+        <a href='' (click)='onLogout()'>
+          Logout
+        </a>
+      </div>
+
     </div>
-  </a>
+
   </div>

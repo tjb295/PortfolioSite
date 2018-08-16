@@ -8,6 +8,9 @@ import { SignupComponent } from './auth/signup/singup.component';
 
 import { HomeComponent } from './home/home.component';
 import { ProjectSingleComponent } from './projects/project-single/project-single.component';
+import { ConsoleComponent } from './console/console.component';
+
+import { AuthGuard } from './auth/auth.guard';
 /*import different components for mobile and web apps*/
 
 const routes: Routes = [
@@ -22,11 +25,16 @@ const routes: Routes = [
   },
   {
     path: 'signup', component: SignupComponent
+  },
+  {
+    path: 'console', component: ConsoleComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

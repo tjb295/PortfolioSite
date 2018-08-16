@@ -19,7 +19,8 @@ import { MatToolbarModule,
          MatTooltipModule,
          MatInputModule,
          MatExpansionModule,
-         MatListModule
+         MatListModule,
+         MatStepperModule
 } from '@angular/material';
 
 
@@ -34,6 +35,7 @@ import { HomeComponent } from './home/home.component';
 import { ProjectSingleComponent } from './projects/project-single/project-single.component';
 import { SignupComponent } from './auth/signup/singup.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { ConsoleComponent } from './console/console.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
@@ -46,7 +48,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     ProjectSingleComponent,
-    SignupComponent
+    SignupComponent,
+    ConsoleComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     MatInputModule,
     HttpClientModule,
     MatExpansionModule,
-    MatListModule
+    MatListModule,
+    MatStepperModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

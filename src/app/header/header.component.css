@@ -18,8 +18,8 @@
   text-align: center;
   position: relative;
   top: 50%;
-  left: 25%;
-  transform: translate(-50%, -50%);
+  left: 0%;
+  transform: translate(0%, -50%);
   color: white;
   width: 50%;
 }
@@ -29,16 +29,19 @@ img:hover {
 }
 
 h1 {
-  font-size: 3.9rem
+  font-size: 65px;
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: 20px;
 }
 
+a, a:visited {
+  color: inherit
+}
 
 a img {
   margin: 20px;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 12%;
+  max-width: 60px;
 }

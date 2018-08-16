@@ -56,5 +56,26 @@
       </mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
-  <mat-tab label='Contact'> </mat-tab>
+  <mat-tab label='Contact'>
+
+    <mat-vertical-stepper>
+      <mat-step>
+        <form >
+          <ng-template matStepLabel>Tell Me your Name</ng-template>
+          <mat-form-field>
+            <input matInput placeholder='Name'required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form>
+
+        </form>
+      </mat-step>
+    </mat-vertical-stepper>
+
+  </mat-tab>
 </mat-tab-group>

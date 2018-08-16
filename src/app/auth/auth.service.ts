@@ -34,13 +34,14 @@ export class AuthService {
     console.log(authData);
     this.http.post<{token: string}>('/api/user/signup', authData)
     .subscribe(response => {
-      this.token = response.token;
-
+      const token = response.token;
+      this.token = token;
       /*Make sure we actually received a token*/
-      if (this.token) {
+      if (token) {
+        console.log(this.token);
         this.isAuthenticated = true;
         this.authStatusListener.next(true);
-        this.router.navigate(['/']);
+        this.router.navigate(['/console']);
       }
     });
   }
@@ -50,6 +51,11 @@ export class AuthService {
     this.http.post<{token: string}>('/api/user/login', authData)
     .subscribe(response => {
       this.token = response.token;
+      if (this.token) {
+        this.isAuthenticated = true;
+        this.authStatusListener.next(true);
+        this.router.navigate(['/console']);
+      }
     });
   }
 
