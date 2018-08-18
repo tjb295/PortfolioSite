@@ -12,6 +12,110 @@
         <button mat-button (click)='onLogout()'>Logout</button>
       </a>
     </li>
-
   </ul>
 </mat-toolbar>
+<div class='projects'>
+
+</div>
+<div>
+    <mat-card>
+      <mat-card-title>
+        Enter a new Project
+      </mat-card-title>
+      <form [formGroup]='form' (submit)='onSavePost()'>
+
+        <mat-form-field>
+          <input
+            matInput
+            type='text'
+            formControlName='title'
+            placeholder='Project Title'
+            >
+            <mat-error *ngIf="form.get('title').invalid">Please Enter a Title</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input
+              matInput
+              placeholder='languages used'
+              formControlName='languages'
+            >
+          </mat-form-field>
+
+        <mat-form-field>
+          <mat-select
+            placeholder='Project Type'
+            formControlName='type'
+            >
+            <mat-option [value]=" 'Mobile' ">
+              Mobile
+            </mat-option>
+            <mat-option [value]="'Web'">
+              Web or Misc
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea
+            matInput
+            rows='10'
+            placeholder='tagline'
+            formControlName='tagline'
+            >
+          </textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea
+              matInput
+              rows='10'
+              placeholder='overview'
+              formControlName='overview'
+              >
+            </textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+              <textarea
+                matInput
+                rows='10'
+                placeholder='design'
+                formControlName='design'
+                >
+              </textarea>
+            </mat-form-field>
+
+            <mat-form-field>
+                <textarea
+                  matInput
+                  rows='10'
+                  placeholder='code'
+                  formControlName='code'
+                  >
+                </textarea>
+              </mat-form-field>
+
+              <mat-form-field>
+                  <textarea
+                    matInput
+                    rows='10'
+                    placeholder='future'
+                    formControlName='future'
+                    >
+                  </textarea>
+                </mat-form-field>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder='github link'
+                  formControlName='github'
+                  >
+              </mat-form-field>
+            <button mat-raised-button
+                color='primary'
+                type='submit'>
+              Save Post</button>
+      </form>
+    </mat-card>
+  </div>

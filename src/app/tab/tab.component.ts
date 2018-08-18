@@ -1,5 +1,5 @@
 import {  Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tab',
@@ -16,11 +16,8 @@ export class TabComponent {
     Web development has become a passionate pursuit both as challenge and hobby for Thomas, leading his senior capstone project as the front-end lead for a cross platform React-Native mobile application. Additional side projects include a shopping site for his friend's clothing brand and products, Spiff Passe, built in AngularJS, and backed by MongoDB and Firebase. Other web technologies proficient to Thomas are Bootstrap, Meteor, PHP, MySQL, and of course Javascript. `;
   }
 
-  onSubmitForm(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
+
 
     /*Submit email to me*/
-  }
+
 }

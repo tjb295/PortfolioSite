@@ -36,11 +36,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _auth_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth/login.component */ "./src/app/auth/login.component.ts");
-/* harmony import */ var _auth_signup_singup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth/signup/singup.component */ "./src/app/auth/signup/singup.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _projects_project_single_project_single_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./projects/project-single/project-single.component */ "./src/app/projects/project-single/project-single.component.ts");
-/* harmony import */ var _console_console_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./console/console.component */ "./src/app/console/console.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _projects_project_single_project_single_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./projects/project-single/project-single.component */ "./src/app/projects/project-single/project-single.component.ts");
+/* harmony import */ var _console_console_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./console/console.component */ "./src/app/console/console.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -54,24 +53,20 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
 /*import different components for mobile and web apps*/
 var routes = [
     {
-        path: 'projects/:id', component: _projects_project_single_project_single_component__WEBPACK_IMPORTED_MODULE_5__["ProjectSingleComponent"]
+        path: 'projects/:id', component: _projects_project_single_project_single_component__WEBPACK_IMPORTED_MODULE_4__["ProjectSingleComponent"]
     },
     {
-        path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"]
+        path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"]
     },
     {
         path: 'login', component: _auth_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
     },
     {
-        path: 'signup', component: _auth_signup_singup_component__WEBPACK_IMPORTED_MODULE_3__["SignupComponent"]
-    },
-    {
-        path: 'console', component: _console_console_component__WEBPACK_IMPORTED_MODULE_6__["ConsoleComponent"],
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+        path: 'console', component: _console_console_component__WEBPACK_IMPORTED_MODULE_5__["ConsoleComponent"],
+        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -81,7 +76,7 @@ var AppRoutingModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
-            providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+            providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -239,7 +234,9 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatExpansionModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatStepperModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatStepperModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSelectModule"]
             ],
             providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _auth_auth_interceptor__WEBPACK_IMPORTED_MODULE_17__["AuthInterceptor"], multi: true }],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -451,7 +448,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-form-field {\n  width: 100%\n}\n\nmat-spinner {\n  margin: auto\n}\n\nmat-card {\n  width: 30%;\n  -ms-grid-row-align: center;\n      align-self: center;\n  margin: auto\n}\n"
+module.exports = "mat-form-field {\n  width: 100%\n}\n\nmat-spinner {\n  margin: auto\n}\n\nmat-card {\n  width: 80%;\n  -ms-grid-row-align: center;\n      align-self: center;\n  margin: auto\n}\n"
 
 /***/ }),
 
@@ -592,7 +589,7 @@ var SignupComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na {\n  text-decoration: none;\n  color: black\n}\n\n.spacer {\n  flex: 1 1 auto;\n}\n\nul {\n  display: flex\n}\n"
+module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na {\n  text-decoration: none;\n  color: black\n}\n\n.spacer {\n  flex: 1 1 auto;\n}\n\nul {\n  display: flex\n}\n\nmat-form-field {\n  width: 100%\n}\n\ntextarea {\n  width: 100%\n}\n\nmat-spinner {\n  margin: auto;\n}\n\ninput[type=\"file\"] {\n  visibility: hidden;\n}\n\n.image-preview {\n  height: 5rem;\n  margin: 1rem 0;\n}\n\n.image-preview img {\n  height: 100%\n}\n\ndiv {\n  margin: auto\n}\n\nmat-card {\n  width: 80%;\n  margin: auto\n}\n\nmat-grid-tile {\n  overflow: scroll\n}\n"
 
 /***/ }),
 
@@ -603,7 +600,7 @@ module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar>\n  <span>Project Management Console</span>\n  <span class='spacer'></span>\n  <ul>\n    <li>\n      <a routerLink='/console' routerLinkActive='mat-accent'>\n        Console Home\n      </a>\n    </li>\n    <li>\n      <a>\n        <button mat-button (click)='onLogout()'>Logout</button>\n      </a>\n    </li>\n\n  </ul>\n</mat-toolbar>\n"
+module.exports = "<mat-toolbar>\n  <span>Project Management Console</span>\n  <span class='spacer'></span>\n  <ul>\n    <li>\n      <a routerLink='/console' routerLinkActive='mat-accent'>\n        Console Home\n      </a>\n    </li>\n    <li>\n      <a>\n        <button mat-button (click)='onLogout()'>Logout</button>\n      </a>\n    </li>\n  </ul>\n</mat-toolbar>\n<div class='projects'>\n\n</div>\n<div>\n    <mat-card>\n      <mat-card-title>\n        Enter a new Project\n      </mat-card-title>\n      <form [formGroup]='form' (submit)='onSavePost()'>\n\n        <mat-form-field>\n          <input\n            matInput\n            type='text'\n            formControlName='title'\n            placeholder='Project Title'\n            >\n            <mat-error *ngIf=\"form.get('title').invalid\">Please Enter a Title</mat-error>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input\n              matInput\n              placeholder='languages used'\n              formControlName='languages'\n            >\n          </mat-form-field>\n\n        <mat-form-field>\n          <mat-select\n            placeholder='Project Type'\n            formControlName='type'\n            >\n            <mat-option [value]=\" 'Mobile' \">\n              Mobile\n            </mat-option>\n            <mat-option [value]=\"'Web'\">\n              Web or Misc\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n\n        <mat-form-field>\n          <textarea\n            matInput\n            rows='10'\n            placeholder='tagline'\n            formControlName='tagline'\n            >\n          </textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea\n              matInput\n              rows='10'\n              placeholder='overview'\n              formControlName='overview'\n              >\n            </textarea>\n          </mat-form-field>\n\n          <mat-form-field>\n              <textarea\n                matInput\n                rows='10'\n                placeholder='design'\n                formControlName='design'\n                >\n              </textarea>\n            </mat-form-field>\n\n            <mat-form-field>\n                <textarea\n                  matInput\n                  rows='10'\n                  placeholder='code'\n                  formControlName='code'\n                  >\n                </textarea>\n              </mat-form-field>\n\n              <mat-form-field>\n                  <textarea\n                    matInput\n                    rows='10'\n                    placeholder='future'\n                    formControlName='future'\n                    >\n                  </textarea>\n                </mat-form-field>\n              <mat-form-field>\n                <input\n                  matInput\n                  placeholder='github link'\n                  formControlName='github'\n                  >\n              </mat-form-field>\n            <button mat-raised-button\n                color='primary'\n                type='submit'>\n              Save Post</button>\n      </form>\n    </mat-card>\n  </div>\n"
 
 /***/ }),
 
@@ -619,6 +616,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConsoleComponent", function() { return ConsoleComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -630,10 +628,49 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ConsoleComponent = /** @class */ (function () {
     function ConsoleComponent(authService) {
         this.authService = authService;
     }
+    ConsoleComponent.prototype.ngOnInit = function () {
+        /*do form initialization*/
+        this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            languages: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            type: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            tagline: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            overview: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            design: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            code: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            future: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            github: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            })
+        });
+    };
+    ConsoleComponent.prototype.onSavePost = function () {
+        if (this.form.invalid) {
+            return;
+        }
+        /*do something*/
+    };
     ConsoleComponent.prototype.onLogout = function () {
         this.authService.logout();
     };
@@ -925,7 +962,7 @@ module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n"
+module.exports = "<mat-card *ngIf='projects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div *ngIf='projects.length > 0'>\n\n</div>\n"
 
 /***/ }),
 
@@ -949,6 +986,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var ProjectsComponent = /** @class */ (function () {
     function ProjectsComponent() {
+        this.projects = [];
     }
     ProjectsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -982,7 +1020,7 @@ module.exports = "h1 {\n  color:darkgray\n}\n\nmat-card-title {\n  font-size: 25
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group mat-stretch-tabs >\n  <mat-tab label='Projects'>\n    <app-projects-header></app-projects-header>\n    <hr>\n    <app-projects></app-projects>\n  </mat-tab>\n  <mat-tab label='About Me'>\n    <mat-grid-list cols='2' rowHeight='1:1'>\n      <mat-grid-tile>\n\n        <img  class='profile-img' alt='Graduation from NAU MAy 2018' src='assets/graduation.jpg'>\n      </mat-grid-tile>\n      <mat-grid-tile class='description'>\n        <mat-card>\n          <mat-card-title>\n            About Me\n          </mat-card-title>\n          <mat-card-content>\n            <p> {{ Bio }}</p>\n          </mat-card-content>\n          <mat-card-title>\n            Work History\n          </mat-card-title>\n          <mat-expansion-panel>\n            <mat-expansion-panel-header>\n              <mat-panel-title>\n                USGS Astrogeology - System Admin Intern\n              </mat-panel-title>\n              <mat-panel-description>\n                Flagstaff, AZ - June 2016 - June 2018\n              </mat-panel-description>\n            </mat-expansion-panel-header>\n            <mat-list>\n              <mat-list-item>\n                  Scripted dynamic remote software installations used daily on Windows hosts with Python’s\n                  Subnet library invoking PowerShell commands\n              </mat-list-item>\n              <mat-list-item>\n                  Configured and deployed RedHat, Ubuntu builds weekly with Ansible Playbooks to maintain\n                  compliance with frequent DOI security and software rollouts.\n              </mat-list-item>\n              <mat-list-item>\n\n              </mat-list-item>\n            </mat-list>\n          </mat-expansion-panel>\n          <mat-card-content>\n            <mat-card-title>\n              Resume\n            </mat-card-title>\n              <a matTooltip='Resume' href='assets/Back_T_Web_Dev.pdf'>\n                <img class='resume' src='data:image/png;base64,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' alt='Resume'>\n              </a>\n          </mat-card-content>\n        </mat-card>\n      </mat-grid-tile>\n    </mat-grid-list>\n  </mat-tab>\n  <mat-tab label='Contact'>\n\n    <mat-vertical-stepper>\n      <mat-step>\n        <form >\n          <ng-template matStepLabel>Tell Me your Name</ng-template>\n          <mat-form-field>\n            <input matInput placeholder='Name'required>\n          </mat-form-field>\n          <div>\n            <button mat-button matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step>\n        <form>\n\n        </form>\n      </mat-step>\n    </mat-vertical-stepper>\n\n  </mat-tab>\n</mat-tab-group>\n"
+module.exports = "<mat-tab-group mat-stretch-tabs >\n  <mat-tab label='Projects'>\n    <app-projects-header></app-projects-header>\n    <hr>\n    <app-projects></app-projects>\n  </mat-tab>\n  <mat-tab label='About Me'>\n    <mat-grid-list cols='2' rowHeight='1:1'>\n      <mat-grid-tile>\n\n        <img  class='profile-img' alt='Graduation from NAU MAy 2018' src='assets/graduation.jpg'>\n      </mat-grid-tile>\n      <mat-grid-tile class='description'>\n        <mat-card>\n          <mat-card-title>\n            About Me\n          </mat-card-title>\n          <mat-card-content>\n            <p> {{ Bio }}</p>\n          </mat-card-content>\n          <mat-card-title>\n            Work History\n          </mat-card-title>\n          <mat-expansion-panel>\n            <mat-expansion-panel-header>\n              <mat-panel-title>\n                USGS Astrogeology - System Admin Intern\n              </mat-panel-title>\n              <mat-panel-description>\n                Flagstaff, AZ - June 2016 - June 2018\n              </mat-panel-description>\n            </mat-expansion-panel-header>\n            <mat-list>\n              <mat-list-item>\n                  Scripted dynamic remote software installations used daily on Windows hosts with Python’s\n                  Subnet library invoking PowerShell commands\n              </mat-list-item>\n              <mat-list-item>\n                  Configured and deployed RedHat, Ubuntu builds weekly with Ansible Playbooks to maintain\n                  compliance with frequent DOI security and software rollouts.\n              </mat-list-item>\n              <mat-list-item>\n\n              </mat-list-item>\n            </mat-list>\n          </mat-expansion-panel>\n          <mat-card-content>\n            <mat-card-title>\n              Resume\n            </mat-card-title>\n              <a matTooltip='Resume' href='assets/Back_T_Web_Dev.pdf'>\n                <img class='resume' src='data:image/png;base64,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' alt='Resume'>\n              </a>\n          </mat-card-content>\n        </mat-card>\n      </mat-grid-tile>\n    </mat-grid-list>\n  </mat-tab>\n  <mat-tab label='Contact'>\n\n    <mat-horizontal-stepper>\n      <mat-step>\n        <form >\n          <ng-template matStepLabel>Tell Me your Name</ng-template>\n          <mat-form-field>\n            <input matInput placeholder='Name'required>\n          </mat-form-field>\n          <div>\n            <button mat-button matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step>\n        <form>\n          <ng-template matStepLabel>Message Content</ng-template>\n          <mat-form-field>\n            <textarea\n              matInput\n              rows=\"6\"\n              required\n              ></textarea>\n          </mat-form-field>\n          <div>\n              <button mat-button matStepperPrevious>Back</button>\n              <button mat-button matStepperNext>Next</button>\n            </div>\n        </form>\n      </mat-step>\n      <mat-step>\n        <ng-template matStepLabel>Done!</ng-template>\n        Message Sent!\n        <div>\n          <button mat-button matStepperPrevious>Rewrite Message</button>\n          <button mat-button >New Message</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n\n  </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -1011,12 +1049,6 @@ var TabComponent = /** @class */ (function () {
     function TabComponent() {
         this.Bio = "Thomas Back studied at Northern Arizona University, majoring in Applied Computer Science with a minor in Japanese.\n    Along with Japanese, programming has become a beloved language of Thomas\u2019s after discovering its satisfying balance of creativity, challenge, and vast problem solving applications. This lead Thomas to the major, an internship at a Campbell, CA based database company, TrifoxInc, as well as to participate in Computer Science enthusiast inspired events such as the UCLA hosted hackathon, \u201CLA Hacks\u201D of 2014.\n\n    Web development has become a passionate pursuit both as challenge and hobby for Thomas, leading his senior capstone project as the front-end lead for a cross platform React-Native mobile application. Additional side projects include a shopping site for his friend's clothing brand and products, Spiff Passe, built in AngularJS, and backed by MongoDB and Firebase. Other web technologies proficient to Thomas are Bootstrap, Meteor, PHP, MySQL, and of course Javascript. ";
     }
-    TabComponent.prototype.onSubmitForm = function (form) {
-        if (form.invalid) {
-            return;
-        }
-        /*Submit email to me*/
-    };
     TabComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-tab',

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AlertModule } from 'ngx-bootstrap';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,7 +20,8 @@ import { MatToolbarModule,
          MatInputModule,
          MatExpansionModule,
          MatListModule,
-         MatStepperModule
+         MatStepperModule,
+         MatSelectModule
 } from '@angular/material';
 
 
@@ -69,7 +70,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule,
     MatExpansionModule,
     MatListModule,
-    MatStepperModule
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

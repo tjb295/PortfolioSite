@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf='projects.length == 0'>
   <mat-card-title>
     Still Under construction!
   </mat-card-title>
@@ -9,3 +9,6 @@
   </mat-card-header>
   <img mat-card-image src="https://png.icons8.com/metro/1600/under-construction.png" alt="Coming Soon!">
 </mat-card>
+<div *ngIf='projects.length > 0'>
+
+</div>
