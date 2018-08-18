@@ -44,41 +44,53 @@ router.post('/signup', (req, res, next) => {
 
 router.post('/login', (req, res, next) => {
   /*Query for user*/
+  console.log(req.body.password);
   User.findOne({
     email: req.body.email
   })
   .then(user => {
     /*if not found */
+    console.log(user);
     if (!user){
       return res.status(401).json({ message: 'User not found'});
     }
 
-    return { same: bcrypt.compare(req.body.password, user.password), user: user };
+    console.log(bcrypt.compareSync(req.body.password, user.password) + ' eheey');
+
+    return { same: bcrypt.compareSync(req.body.password, user.password), user: user}
+
+
   })
   .then(result => {
+    console.log(result.same + ' same');
     if(!result.same) {
       return res.status(401).json({
         message: 'Authentication failed'
       });
     }
+      /*create token for the front end*/
+      const token = jwt.sign(
+        { email: result.user.email, userId: result.user._id },
+        'testing_for_the_home_team',
+        {expiresIn: '1h'}
+      );
 
-    /*create token for the front end*/
-    const token = jwt.sign(
-      { email: result.user.email, userId: result.user._id },
-      'testing_for_the_home_team',
-      {expiresIn: '1h'}
-    );
-
-    res.status(200).json({
-      token: token,
-      message: 'Logged in Successfully'
-    });
+      return res.status(200).json({
+        token: token,
+        message: 'Logged in Successfully'
+      });
   })
   .catch(err => {
     return res.status(401).json({
       message: 'Unable to login',
       error: err
     });
+  })
+  .catch(err => {
+    return res.status(401).json({
+      message: 'Unable to find account',
+      error: err
+    })
   });
 });
 

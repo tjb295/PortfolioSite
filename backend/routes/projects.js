@@ -30,7 +30,14 @@ router.post('',  (req, res, next) => {
     res.status(201).json({
       message: 'Project added successfully',
       project: {
-        ...createdProject,
+        title: createdProject.title,
+        type: createdProject.type,
+        languages: createdProject.languages,
+        overview: createdProject.overview,
+        design: createdProject.design,
+        tagline: createdProject.tagline,
+        code: createdProject.code,
+        future: createdProject.future,
         _id: createdProject._id
       }
     });

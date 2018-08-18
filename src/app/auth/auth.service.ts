@@ -51,6 +51,8 @@ export class AuthService {
     this.http.post<{token: string}>('/api/user/login', authData)
     .subscribe(response => {
       this.token = response.token;
+      console.log(response);
+      console.log(this.token);
       if (this.token) {
         this.isAuthenticated = true;
         this.authStatusListener.next(true);

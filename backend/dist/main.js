@@ -36,10 +36,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _auth_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth/login.component */ "./src/app/auth/login.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _projects_project_single_project_single_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./projects/project-single/project-single.component */ "./src/app/projects/project-single/project-single.component.ts");
-/* harmony import */ var _console_console_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./console/console.component */ "./src/app/console/console.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _auth_signup_singup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth/signup/singup.component */ "./src/app/auth/signup/singup.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _projects_project_single_project_single_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./projects/project-single/project-single.component */ "./src/app/projects/project-single/project-single.component.ts");
+/* harmony import */ var _console_console_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./console/console.component */ "./src/app/console/console.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,20 +54,24 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 /*import different components for mobile and web apps*/
 var routes = [
     {
-        path: 'projects/:id', component: _projects_project_single_project_single_component__WEBPACK_IMPORTED_MODULE_4__["ProjectSingleComponent"]
+        path: 'projects/:id', component: _projects_project_single_project_single_component__WEBPACK_IMPORTED_MODULE_5__["ProjectSingleComponent"]
     },
     {
-        path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"]
+        path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"]
     },
     {
         path: 'login', component: _auth_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
     },
     {
-        path: 'console', component: _console_console_component__WEBPACK_IMPORTED_MODULE_5__["ConsoleComponent"],
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
+        path: 'signup', component: _auth_signup_singup_component__WEBPACK_IMPORTED_MODULE_3__["SignupComponent"]
+    },
+    {
+        path: 'console', component: _console_console_component__WEBPACK_IMPORTED_MODULE_6__["ConsoleComponent"],
+        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -76,7 +81,7 @@ var AppRoutingModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
-            providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
+            providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -416,6 +421,8 @@ var AuthService = /** @class */ (function () {
         this.http.post('/api/user/login', authData)
             .subscribe(function (response) {
             _this.token = response.token;
+            console.log(response);
+            console.log(_this.token);
             if (_this.token) {
                 _this.isAuthenticated = true;
                 _this.authStatusListener.next(true);
