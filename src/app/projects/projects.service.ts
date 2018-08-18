@@ -20,13 +20,23 @@ export class ProjectsService {
 
   addProject(project: Project) {
     /*Form Data for appending*/
-    const projectData = FormData();
+    console.log(project);
+    const projectData = new FormData();
 
     /*Append each attrib of project to formData */
-    Object.keys(project).forEach(key => projectData.append(key, object[key]));
+    projectData.append('_id', project._id);
+    projectData.append('title', project.title);
+    projectData.append('type', project.type);
+    projectData.append('languages', project.languages[0]);
+    projectData.append('tagline', project.tagline);
+    projectData.append('overview', project.overview);
+    projectData.append('future', project.future);
+    projectData.append('design', project.design);
+    projectData.append('code', project.code);
 
+    console.log(projectData);
 
-    this.http.post<{message: string, project: Project}>('/api/projects', projectData)
+    this.http.post<{message: string, project: Project}>('/api/projects', project)
     .subscribe((responseData) => {
       console.log(responseData);
     });

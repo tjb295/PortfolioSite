@@ -10,6 +10,7 @@ const checkAuth = require('../middleware/check-auth');
 /*routing for project: POSTs*/
 router.post('',  (req, res, next) => {
 
+  console.log(req.body);
 
   const project = new Project({
     type: req.body.type,
@@ -22,12 +23,14 @@ router.post('',  (req, res, next) => {
     future: req.body.future
   });
 
+
+
   /*Save to DB*/
   project.save().then(createdProject => {
     res.status(201).json({
       message: 'Project added successfully',
       project: {
-        createdProject: createdProject,
+        ...createdProject,
         _id: createdProject._id
       }
     });

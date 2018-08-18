@@ -21,7 +21,6 @@ router.post('/signup', (req, res, next) => {
     /*Create token for logging in if user created successfully*/
     user.save()
     .then(result => {
-      console.log(result);
       const token = jwt.sign(
         { email: result.email, userId: result._id },
         'trapping_in_japan_12_is_the_greatest',
@@ -44,7 +43,6 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
-  console.log(req);
   /*Query for user*/
   User.findOne({
     email: req.body.email

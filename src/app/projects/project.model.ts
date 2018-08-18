@@ -10,8 +10,8 @@ export interface Project {
   code: string;
   future: string;
   /*Image Paths*/
-  titleImg: Array<string>;
-  projectImg: Array<string>;
-  designImg: Array<string>;
-  technologyImg: Array<string>;
+  // titleImg: Array<string>;
+  // projectImg: Array<string>;
+  // designImg: Array<string>;
+  // technologyImg: Array<string>;
 }

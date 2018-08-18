@@ -617,6 +617,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth/auth.service */ "./src/app/auth/auth.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _projects_projects_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../projects/projects.service */ "./src/app/projects/projects.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -629,9 +630,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ConsoleComponent = /** @class */ (function () {
-    function ConsoleComponent(authService) {
+    function ConsoleComponent(authService, projectsService) {
         this.authService = authService;
+        this.projectsService = projectsService;
     }
     ConsoleComponent.prototype.ngOnInit = function () {
         /*do form initialization*/
@@ -667,9 +670,23 @@ var ConsoleComponent = /** @class */ (function () {
     };
     ConsoleComponent.prototype.onSavePost = function () {
         if (this.form.invalid) {
+            console.log('AHHHH');
             return;
         }
-        /*do something*/
+        this.project = {
+            _id: '',
+            title: this.form.value.title,
+            type: this.form.value.type,
+            languages: [this.form.value.languages],
+            tagline: this.form.value.tagline,
+            overview: this.form.value.overview,
+            design: this.form.value.design,
+            code: this.form.value.code,
+            future: this.form.value.future
+        };
+        console.log(this.project);
+        this.projectsService.addProject(this.project);
+        this.form.reset();
     };
     ConsoleComponent.prototype.onLogout = function () {
         this.authService.logout();
@@ -680,7 +697,7 @@ var ConsoleComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./console.component.html */ "./src/app/console/console.component.html"),
             styles: [__webpack_require__(/*! ./console.component.css */ "./src/app/console/console.component.css")]
         }),
-        __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _projects_projects_service__WEBPACK_IMPORTED_MODULE_3__["ProjectsService"]])
     ], ConsoleComponent);
     return ConsoleComponent;
 }());
@@ -996,6 +1013,74 @@ var ProjectsComponent = /** @class */ (function () {
         })
     ], ProjectsComponent);
     return ProjectsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/projects/projects.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/projects/projects.service.ts ***!
+  \**********************************************/
+/*! exports provided: ProjectsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectsService", function() { return ProjectsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/*This is the Service that will send and retrieve project
+from this site to this server */
+
+
+
+
+var ProjectsService = /** @class */ (function () {
+    function ProjectsService(http, router) {
+        this.http = http;
+        this.router = router;
+        this.projects = [];
+        /*create subject for recieving from db*/
+        this.projectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+    }
+    ProjectsService.prototype.addProject = function (project) {
+        /*Form Data for appending*/
+        console.log(project);
+        var projectData = new FormData();
+        /*Append each attrib of project to formData */
+        projectData.append('_id', project._id);
+        projectData.append('title', project.title);
+        projectData.append('type', project.type);
+        projectData.append('languages', project.languages[0]);
+        projectData.append('tagline', project.tagline);
+        projectData.append('overview', project.overview);
+        projectData.append('future', project.future);
+        projectData.append('design', project.design);
+        projectData.append('code', project.code);
+        console.log(projectData);
+        this.http.post('/api/projects', project)
+            .subscribe(function (responseData) {
+            console.log(responseData);
+        });
+    };
+    ProjectsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({ providedIn: 'root' }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    ], ProjectsService);
+    return ProjectsService;
 }());
 
 

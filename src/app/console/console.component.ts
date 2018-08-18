@@ -5,6 +5,8 @@ import { Project } from '../projects/project.model';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { ProjectsService } from '../projects/projects.service';
+
 @Component({
   selector: 'app-console',
   templateUrl: './console.component.html',
@@ -50,13 +52,29 @@ export class ConsoleComponent implements OnInit {
     });
   }
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private projectsService: ProjectsService) {}
 
   onSavePost() {
     if (this.form.invalid) {
+      console.log('AHHHH');
       return;
     }
-    /*do something*/
+
+    this.project = {
+      _id: '',
+      title: this.form.value.title,
+      type: this.form.value.type,
+      languages: [this.form.value.languages],
+      tagline: this.form.value.tagline,
+      overview: this.form.value.overview,
+      design: this.form.value.design,
+      code: this.form.value.code,
+      future: this.form.value.future
+    };
+    console.log(this.project);
+
+    this.projectsService.addProject(this.project);
+    this.form.reset();
   }
   onLogout() {
     this.authService.logout();
