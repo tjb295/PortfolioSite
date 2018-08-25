@@ -607,7 +607,7 @@ module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar>\n  <span>Project Management Console</span>\n  <span class='spacer'></span>\n  <ul>\n    <li>\n      <a routerLink='/console' routerLinkActive='mat-accent'>\n        Console Home\n      </a>\n    </li>\n    <li>\n      <a>\n        <button mat-button (click)='onLogout()'>Logout</button>\n      </a>\n    </li>\n  </ul>\n</mat-toolbar>\n<div class='projects'>\n\n</div>\n<div>\n    <mat-card>\n      <mat-card-title>\n        Enter a new Project\n      </mat-card-title>\n      <form [formGroup]='form' (submit)='onSavePost()'>\n\n        <mat-form-field>\n          <input\n            matInput\n            type='text'\n            formControlName='title'\n            placeholder='Project Title'\n            >\n            <mat-error *ngIf=\"form.get('title').invalid\">Please Enter a Title</mat-error>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input\n              matInput\n              placeholder='languages used'\n              formControlName='languages'\n            >\n          </mat-form-field>\n\n        <mat-form-field>\n          <mat-select\n            placeholder='Project Type'\n            formControlName='type'\n            >\n            <mat-option [value]=\" 'Mobile' \">\n              Mobile\n            </mat-option>\n            <mat-option [value]=\"'Web'\">\n              Web or Misc\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n\n        <mat-form-field>\n          <textarea\n            matInput\n            rows='10'\n            placeholder='tagline'\n            formControlName='tagline'\n            >\n          </textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea\n              matInput\n              rows='10'\n              placeholder='overview'\n              formControlName='overview'\n              >\n            </textarea>\n          </mat-form-field>\n\n          <mat-form-field>\n              <textarea\n                matInput\n                rows='10'\n                placeholder='design'\n                formControlName='design'\n                >\n              </textarea>\n            </mat-form-field>\n\n            <mat-form-field>\n                <textarea\n                  matInput\n                  rows='10'\n                  placeholder='code'\n                  formControlName='code'\n                  >\n                </textarea>\n              </mat-form-field>\n\n              <mat-form-field>\n                  <textarea\n                    matInput\n                    rows='10'\n                    placeholder='future'\n                    formControlName='future'\n                    >\n                  </textarea>\n                </mat-form-field>\n              <mat-form-field>\n                <input\n                  matInput\n                  placeholder='github link'\n                  formControlName='github'\n                  >\n              </mat-form-field>\n            <button mat-raised-button\n                color='primary'\n                type='submit'>\n              Save Post</button>\n      </form>\n    </mat-card>\n  </div>\n"
+module.exports = "<mat-toolbar>\n  <span>Project Management Console</span>\n  <span class='spacer'></span>\n  <ul>\n    <li>\n      <a routerLink='/console' routerLinkActive='mat-accent'>\n        Console Home\n      </a>\n    </li>\n    <li>\n      <a>\n        <button mat-button (click)='onLogout()'>Logout</button>\n      </a>\n    </li>\n  </ul>\n</mat-toolbar>\n<div class='projects'>\n\n</div>\n<div>\n    <mat-card>\n      <mat-card-title>\n        Enter a new Project\n      </mat-card-title>\n      <form [formGroup]='form' (submit)='onSavePost()'>\n\n        <mat-form-field>\n          <input\n            matInput\n            type='text'\n            formControlName='title'\n            placeholder='Project Title'\n            >\n            <mat-error *ngIf=\"form.get('title').invalid\">Please Enter a Title</mat-error>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input\n              matInput\n              placeholder='languages used'\n              formControlName='languages'\n            >\n          </mat-form-field>\n\n        <mat-form-field>\n          <mat-select\n            placeholder='Project Type'\n            formControlName='type'\n            >\n            <mat-option [value]=\" 'Mobile' \">\n              Mobile\n            </mat-option>\n            <mat-option [value]=\"'Web'\">\n              Web or Misc\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n        <div>\n          <button mat-stroked-button type=\"button\" (click)='filePicker.click()'>Pick a Thumbnail</button>\n          <input type='file' #filePicker (change)='onImagePickedEvent($event)'>\n        </div>\n        <div class='image-preview' *ngIf=\"imagePreview !== '' && imagePreview\">\n          <img [src]='imagePreview' [alt]='form.value.title'>\n        </div>\n\n        <mat-form-field>\n          <textarea\n            matInput\n            rows='10'\n            placeholder='tagline'\n            formControlName='tagline'\n            >\n          </textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea\n              matInput\n              rows='10'\n              placeholder='overview'\n              formControlName='overview'\n              >\n            </textarea>\n          </mat-form-field>\n\n          <mat-form-field>\n              <textarea\n                matInput\n                rows='10'\n                placeholder='design'\n                formControlName='design'\n                >\n              </textarea>\n            </mat-form-field>\n\n            <mat-form-field>\n                <textarea\n                  matInput\n                  rows='10'\n                  placeholder='code'\n                  formControlName='code'\n                  >\n                </textarea>\n              </mat-form-field>\n\n              <mat-form-field>\n                  <textarea\n                    matInput\n                    rows='10'\n                    placeholder='future'\n                    formControlName='future'\n                    >\n                  </textarea>\n                </mat-form-field>\n              <mat-form-field>\n                <input\n                  matInput\n                  placeholder='github link'\n                  formControlName='github'\n                  >\n              </mat-form-field>\n            <button mat-raised-button\n                color='primary'\n                type='submit'>\n              Save Post</button>\n      </form>\n    </mat-card>\n  </div>\n"
 
 /***/ }),
 
@@ -625,6 +625,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth/auth.service */ "./src/app/auth/auth.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _projects_projects_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../projects/projects.service */ "./src/app/projects/projects.service.ts");
+/* harmony import */ var _mime_type_validator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mime-type.validator */ "./src/app/console/mime-type.validator.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -634,6 +635,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -672,6 +674,10 @@ var ConsoleComponent = /** @class */ (function () {
             }),
             github: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
                 validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            }),
+            image: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+                asyncValidators: [_mime_type_validator__WEBPACK_IMPORTED_MODULE_4__["mimeType"]]
             })
         });
     };
@@ -690,11 +696,27 @@ var ConsoleComponent = /** @class */ (function () {
             design: this.form.value.design,
             code: this.form.value.code,
             future: this.form.value.future,
-            github: this.form.value.github
+            github: this.form.value.github,
+            image: 'scrn1.png'
         };
         console.log(this.project);
-        this.projectsService.addProject(this.project);
+        this.projectsService.addProject(this.project, this.form.value.image);
         this.form.reset();
+    };
+    ConsoleComponent.prototype.onImagePickedEvent = function (event) {
+        var _this = this;
+        /*Say this is an HTMLInputElement*/
+        var file = event.target.files[0];
+        /*patch value allows you to target a simple control*/
+        this.form.patchValue({ image: file });
+        /*Tells form that value is changed and to validate*/
+        this.form.get('image').updateValueAndValidity();
+        /*convert this to an image url*/
+        var reader = new FileReader();
+        reader.onload = function () {
+            _this.imagePreview = reader.result;
+        };
+        reader.readAsDataURL(file);
     };
     ConsoleComponent.prototype.onLogout = function () {
         this.authService.logout();
@@ -710,6 +732,63 @@ var ConsoleComponent = /** @class */ (function () {
     return ConsoleComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/console/mime-type.validator.ts":
+/*!************************************************!*\
+  !*** ./src/app/console/mime-type.validator.ts ***!
+  \************************************************/
+/*! exports provided: mimeType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mimeType", function() { return mimeType; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
+var mimeType = function (control) {
+    if (typeof (control.value) === 'string') {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["of"])(null);
+    }
+    var file = control.value;
+    var fileReader = new FileReader();
+    var frObs = rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"].create(function (observer) {
+        fileReader.addEventListener("loadend", function () {
+            var arr = new Uint8Array(fileReader.result).subarray(0, 4);
+            var header = "";
+            var isValid = false;
+            for (var i = 0; i < arr.length; i++) {
+                header += arr[i].toString(16);
+            }
+            switch (header) {
+                case "89504e47":
+                    isValid = true;
+                    break;
+                case "ffd8ffe0":
+                case "ffd8ffe1":
+                case "ffd8ffe2":
+                case "ffd8ffe3":
+                case "ffd8ffe8":
+                    isValid = true;
+                    break;
+                default:
+                    isValid = false; // Or you can use the blob.type as fallback
+                    break;
+            }
+            if (isValid) {
+                observer.next(null);
+            }
+            else {
+                observer.next({ invalidMimeType: true });
+            }
+            observer.complete();
+        });
+        fileReader.readAsArrayBuffer(file);
+    });
+    return frObs;
+};
 
 
 /***/ }),
@@ -976,7 +1055,7 @@ var ProjectsHeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n      align-self: center;\n  margin: auto\n}\n\na {\n  text-decoration: none;\n  color: rgb(46, 11, 46)\n}\n\nimg {\n  max-width: 70%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.outer-div {\n  padding: 10%;\n  padding-top: 0px;\n  text-align: center;\n  margin: 0;\n  margin-bottom: 10px;\n}\n\n.inner-div {\n  border-radius: 5px;\n  display: inline-block;\n  padding: 10%;\n  width: 90%;\n  box-shadow: 0 8px 6px -6px black;\n}\n\n.header-div {\n  float: left;\n  text-align: left;\n}\n\n.header-div img {\n\n}\n\n.tagline-div {\n  font-size: 22px;\n}\n\n.body-div {\n  float: right;\n  text-align: left;\n  width: 50%;\n}\n\n.languages-div {\n  background-color: rgb(96, 87, 221);\n  color: white;\n  border-radius: 5px;\n  font-size: 20px;\n  padding:0;\n  text-align: center\n}\n\n.github-link {\n  background-color: rgb(54, 6, 54);\n  color: white;\n  border-radius: 5px;\n  font-size: 20px;\n  padding:0;\n  text-align: center;\n  width: auto\n}\n"
+module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n      align-self: center;\n  margin: auto\n}\n\na {\n  text-decoration: none;\n  color: rgb(46, 11, 46)\n}\n\nimg {\n  max-width: 70%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.outer-div {\n  padding: 10%;\n  padding-top: 0px;\n  text-align: center;\n  margin: 0;\n  margin-bottom: 10px;\n}\n\n.inner-div {\n  border-radius: 5px;\n  display: inline-block;\n  padding: 10%;\n  width: 90%;\n  box-shadow: 0 8px 6px -6px black;\n}\n\n.header-div {\n  float: left;\n  text-align: left;\n  margin: 0px;\n  padding: 0px;\n  width: 50%\n}\n\n.header-div img {\n  width: 60%;\n  float: left;\n  margin: 0px;\n  padding: 0px;\n}\n\n.tagline-div {\n  font-size: 22px;\n}\n\n.body-div {\n  float: right;\n  text-align: left;\n  width: 50%;\n  margin-left: 0px\n}\n\n.languages-div {\n  background-color: rgb(96, 87, 221);\n  color: white;\n  border-radius: 5px;\n  font-size: 20px;\n  padding:0;\n  text-align: center\n}\n\n.github-link {\n  background-color: rgb(54, 6, 54);\n  color: white;\n  border-radius: 5px;\n  font-size: 20px;\n  padding:0;\n  text-align: center;\n  width: auto\n}\n"
 
 /***/ }),
 
@@ -987,7 +1066,7 @@ module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div class='outer-div' *ngIf='webProjects.length > 0'>\n  <div class='inner-div' *ngFor='let project of webProjects'>\n    <div class='header-div'>\n        <h1>{{project.title}}</h1>\n        <img src='#' alt='Title Picture' >\n    </div>\n    <div class='body-div'>\n        <p class='tagline-div'>{{project.tagline}}</p>\n        <p class='languages-div' >{{project.languages}}</p>\n        <a [routerLink]=\"['/projects', project._id]\">Learn More</a>\n        <a href='{{project.github}}'><p class='github-link' >See Code</p></a>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div class='outer-div' *ngIf='webProjects.length > 0'>\n  <div class='inner-div' *ngFor='let project of webProjects'>\n    <div class='header-div'>\n        <h1>{{project.title}}</h1>\n        <img src='assets/scrn1.png' alt='Title Picture' >\n    </div>\n    <div class='body-div'>\n        <p class='tagline-div'>{{project.tagline}}</p>\n        <p class='languages-div' >{{project.languages}}</p>\n        <a [routerLink]=\"['/projects', project._id]\">Learn More</a>\n        <a href='{{project.github}}'><p class='github-link' >See Code</p></a>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1098,7 +1177,7 @@ var ProjectsService = /** @class */ (function () {
                     return {
                         _id: project._id,
                         title: project.title,
-                        type: 'web',
+                        type: 'Web',
                         languages: project.languages,
                         tagline: project.tagline,
                         overview: project.overview,
@@ -1119,21 +1198,23 @@ var ProjectsService = /** @class */ (function () {
     ProjectsService.prototype.getWebPostsUpdateListener = function () {
         return this.webProjectsUpdated.asObservable();
     };
-    ProjectsService.prototype.addProject = function (project) {
+    ProjectsService.prototype.addProject = function (project, image) {
         /*Form Data for appending*/
         console.log(project);
+        console.log(image);
         var projectData = new FormData();
         /*Append each attrib of project to formData */
         projectData.append('_id', project._id);
         projectData.append('title', project.title);
         projectData.append('type', project.type);
-        projectData.append('languages', project.languages[0]);
+        projectData.append('languages', project.languages);
         projectData.append('tagline', project.tagline);
         projectData.append('overview', project.overview);
         projectData.append('future', project.future);
         projectData.append('design', project.design);
         projectData.append('code', project.code);
         projectData.append('github', project.github);
+        projectData.append('image', project.image);
         console.log(projectData);
         this.http.post('/api/projects', project)
             .subscribe(function (responseData) {

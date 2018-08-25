@@ -34,10 +34,16 @@ img {
 .header-div {
   float: left;
   text-align: left;
+  margin: 0px;
+  padding: 0px;
+  width: 50%
 }
 
 .header-div img {
-
+  width: 60%;
+  float: left;
+  margin: 0px;
+  padding: 0px;
 }
 
 .tagline-div {
@@ -48,6 +54,7 @@ img {
   float: right;
   text-align: left;
   width: 50%;
+  margin-left: 0px
 }
 
 .languages-div {

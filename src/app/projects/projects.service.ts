@@ -31,7 +31,7 @@ export class ProjectsService {
             return {
               _id: project._id,
               title: project.title,
-              type: 'web',
+              type: 'Web',
               languages: project.languages,
               tagline: project.tagline,
               overview: project.overview,
@@ -55,22 +55,24 @@ export class ProjectsService {
     return this.webProjectsUpdated.asObservable();
   }
 
-  addProject(project: Project) {
+  addProject(project: Project, image: File) {
     /*Form Data for appending*/
     console.log(project);
+    console.log(image);
     const projectData = new FormData();
 
     /*Append each attrib of project to formData */
     projectData.append('_id', project._id);
     projectData.append('title', project.title);
     projectData.append('type', project.type);
-    projectData.append('languages', project.languages[0]);
+    projectData.append('languages', project.languages);
     projectData.append('tagline', project.tagline);
     projectData.append('overview', project.overview);
     projectData.append('future', project.future);
     projectData.append('design', project.design);
     projectData.append('code', project.code);
     projectData.append('github', project.github);
+    projectData.append('image', project.image);
 
     console.log(projectData);
 

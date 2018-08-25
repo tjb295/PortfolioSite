@@ -7,11 +7,38 @@ const router = express.Router();
 /*Middleware to authenticate upon requests*/
 const checkAuth = require('../middleware/check-auth');
 
+/*Mime type mapping and multer storage config*/
+const MIME_TYPE_MAP = {
+  'image/png' : 'png',
+  'image/jpeg': 'jpg',
+  'image/jpg' : 'jpg'
+};
+
+const storage = multer.diskStorage({
+
+    destination: (req, file, cb) => {
+      const isValid = MIME_TYPE_MAP[file.mimetype];
+      let error = new Error('Invalid mime type');
+      if(isValid) {
+        error = null;
+      }
+      cb(error, "backend/images");
+    },
+    filename: (req, file, cb) => {
+      const name = file.originalname.toLowerCase().split(' ').join('-');
+      const ext = MIME_TYPE_MAP[file.mimetype];
+      cb(null, name + '-' + Date.now() + '.' + ext);
+    }
+});
+
 /*routing for project: POSTs*/
-router.post('',  (req, res, next) => {
+router.post('', multer({storage: storage}).single("image"), (req, res, next) => {
 
   console.log(req.body);
+  console.log(req.files);
 
+  const url = req.protocol + '://' + req.get('host');
+  console.log(url);
   const project = new Project({
     type: req.body.type,
     title: req.body.title,
@@ -21,7 +48,8 @@ router.post('',  (req, res, next) => {
     design: req.body.design,
     code: req.body.code,
     future: req.body.future,
-    github: req.body.github
+    github: req.body.github,
+    image: '/images/' + req.body.image
   });
 
 

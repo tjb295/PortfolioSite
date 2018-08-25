@@ -11,7 +11,8 @@ export interface Project {
   future: string;
   github: string;
   /*Image Paths*/
-  // titleImg: Array<string>;
+  //titleImg: string;
+  image: string;
   // projectImg: Array<string>;
   // designImg: Array<string>;
   // technologyImg: Array<string>;

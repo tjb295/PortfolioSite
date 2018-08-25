@@ -1,8 +1,8 @@
 //thi will hold express app setup
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var path = require('path');
-const bodyParser = require('body-parser');
 
 const projectsRoute = require('./routes/projects');
 const usersRoute = require('./routes/auth');
@@ -20,8 +20,8 @@ mongoose.connect('mongodb://localhost:27017/Projects')
 //body parser setup
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
-app.use('/', express.static(path.join(__dirname, 'dist')));
 
+app.use('/images', express.static(path.join('backend/images')));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -38,7 +38,8 @@ app.use((req, res, next) => {
 
 
 
-app.use('/images', express.static(path.join('backend/images')));
+app.use('/', express.static(path.join(__dirname, 'dist')));
+
 
 app.use('/api/projects', projectsRoute);
 app.use('/api/user', usersRoute);

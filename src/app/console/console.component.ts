@@ -77,11 +77,12 @@ export class ConsoleComponent implements OnInit {
       design: this.form.value.design,
       code: this.form.value.code,
       future: this.form.value.future,
-      github: this.form.value.github
+      github: this.form.value.github,
+      image: 'scrn1.png'
     };
     console.log(this.project);
 
-    this.projectsService.addProject(this.project);
+    this.projectsService.addProject(this.project, this.form.value.image);
     this.form.reset();
   }
 

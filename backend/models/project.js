@@ -11,7 +11,8 @@ const projectSchema = mongoose.Schema({
   code: String,
   future: String,
   github: String,
-  titleImg: [String],
+  image: String,
+  titleImg: String,
   projectImg: [String],
   designImg: [String],
   technologyImg: [String]
