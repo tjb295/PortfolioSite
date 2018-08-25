@@ -15,4 +15,56 @@ img {
   margin-right: auto;
 }
 
+.outer-div {
+  padding: 10%;
+  padding-top: 0px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+}
 
+.inner-div {
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10%;
+  width: 90%;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+.header-div {
+  float: left;
+  text-align: left;
+}
+
+.header-div img {
+
+}
+
+.tagline-div {
+  font-size: 22px;
+}
+
+.body-div {
+  float: right;
+  text-align: left;
+  width: 50%;
+}
+
+.languages-div {
+  background-color: rgb(96, 87, 221);
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  padding:0;
+  text-align: center
+}
+
+.github-link {
+  background-color: rgb(54, 6, 54);
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  padding:0;
+  text-align: center;
+  width: auto
+}

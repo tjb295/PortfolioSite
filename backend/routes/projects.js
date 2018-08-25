@@ -20,7 +20,8 @@ router.post('',  (req, res, next) => {
     overview: req.body.overview,
     design: req.body.design,
     code: req.body.code,
-    future: req.body.future
+    future: req.body.future,
+    github: req.body.github
   });
 
 
@@ -38,7 +39,8 @@ router.post('',  (req, res, next) => {
         tagline: createdProject.tagline,
         code: createdProject.code,
         future: createdProject.future,
-        _id: createdProject._id
+        _id: createdProject._id,
+        github: createdProject.github
       }
     });
   });

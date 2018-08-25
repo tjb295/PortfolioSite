@@ -7,6 +7,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ProjectsService } from '../projects/projects.service';
 
+import { mimeType } from './mime-type.validator';
+
 @Component({
   selector: 'app-console',
   templateUrl: './console.component.html',
@@ -18,6 +20,7 @@ export class ConsoleComponent implements OnInit {
   private projectId: string;
   public project: Project;
   form: FormGroup;
+  imagePreview: string;
 
   ngOnInit() {
     /*do form initialization*/
@@ -48,6 +51,10 @@ export class ConsoleComponent implements OnInit {
       }),
       github: new FormControl(null, {
         validators: [Validators.required]
+      }),
+      image: new FormControl(null, {
+        validators: [Validators.required],
+        asyncValidators: [mimeType]
       })
     });
   }
@@ -77,6 +84,27 @@ export class ConsoleComponent implements OnInit {
     this.projectsService.addProject(this.project);
     this.form.reset();
   }
+
+  onImagePickedEvent(event: Event) {
+    /*Say this is an HTMLInputElement*/
+    const file = (event.target as HTMLInputElement).files[0];
+
+    /*patch value allows you to target a simple control*/
+    this.form.patchValue({image: file});
+
+    /*Tells form that value is changed and to validate*/
+    this.form.get('image').updateValueAndValidity();
+
+    /*convert this to an image url*/
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    };
+
+    reader.readAsDataURL(file);
+  }
+
   onLogout() {
     this.authService.logout();
   }
