@@ -9,6 +9,7 @@ export interface Project {
   design: string;
   code: string;
   future: string;
+  github: string;
   /*Image Paths*/
   // titleImg: Array<string>;
   // projectImg: Array<string>;

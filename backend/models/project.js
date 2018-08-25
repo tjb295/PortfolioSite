@@ -10,6 +10,7 @@ const projectSchema = mongoose.Schema({
   design: String,
   code: String,
   future: String,
+  github: String,
   titleImg: [String],
   projectImg: [String],
   designImg: [String],

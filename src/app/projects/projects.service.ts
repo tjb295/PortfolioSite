@@ -33,6 +33,7 @@ export class ProjectsService {
     projectData.append('future', project.future);
     projectData.append('design', project.design);
     projectData.append('code', project.code);
+    projectData.append('github', project.github);
 
     console.log(projectData);
 
