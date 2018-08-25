@@ -689,7 +689,8 @@ var ConsoleComponent = /** @class */ (function () {
             overview: this.form.value.overview,
             design: this.form.value.design,
             code: this.form.value.code,
-            future: this.form.value.future
+            future: this.form.value.future,
+            github: this.form.value.github
         };
         console.log(this.project);
         this.projectsService.addProject(this.project);
@@ -986,7 +987,7 @@ module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card *ngIf='projects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div *ngIf='projects.length > 0'>\n\n</div>\n"
+module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div *ngIf='webProjects.length > 0'>\n  <div class='ProjectsList' *ngFor='let project of webProjects'>\n    <h1>{{project.title}}</h1>\n    <img src='#' alt='Title Picture' >\n    <p>{{project.tagline}}</p>\n    <a [routerLink]=\"['/projects', project._id]\"></a>\n    <p>See Code</p>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1001,23 +1002,43 @@ module.exports = "<mat-card *ngIf='projects.length == 0'>\n  <mat-card-title>\n 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectsComponent", function() { return ProjectsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _projects_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects.service */ "./src/app/projects/projects.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var ProjectsComponent = /** @class */ (function () {
-    function ProjectsComponent() {
-        this.projects = [];
+    function ProjectsComponent(projectsService) {
+        this.projectsService = projectsService;
+        /*Gonna need to load in the projects somehow*/
+        this.webProjects = [];
+        this.mobileProjects = [];
     }
+    ProjectsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.projectsService.getWebPosts();
+        this.webProjectsSub = this.projectsService.getWebPostsUpdateListener()
+            .subscribe(function (projectData) {
+            _this.webProjects = projectData.projects;
+        });
+    };
+    ProjectsComponent.prototype.ngOnDestroy = function () {
+        this.webProjectsSub.unsubscribe();
+    };
     ProjectsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-projects',
             template: __webpack_require__(/*! ./projects.component.html */ "./src/app/projects/projects.component.html"),
             styles: [__webpack_require__(/*! ./projects.component.css */ "./src/app/projects/projects.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_projects_service__WEBPACK_IMPORTED_MODULE_1__["ProjectsService"]])
     ], ProjectsComponent);
     return ProjectsComponent;
 }());
@@ -1038,8 +1059,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectsService", function() { return ProjectsService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1055,14 +1077,48 @@ from this site to this server */
 
 
 
+
 var ProjectsService = /** @class */ (function () {
     function ProjectsService(http, router) {
         this.http = http;
         this.router = router;
-        this.projects = [];
+        this.webProjects = [];
+        this.mobileProjects = [];
+        this.webProjectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
         /*create subject for recieving from db*/
         this.projectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
     }
+    /*Function for retrieving all projects*/
+    ProjectsService.prototype.getWebPosts = function () {
+        var _this = this;
+        this.http.get('/api/projects/Web')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (projectData) {
+            return {
+                projects: projectData.projects.map(function (project) {
+                    return {
+                        _id: project._id,
+                        title: project.title,
+                        type: 'web',
+                        languages: project.languages,
+                        tagline: project.tagline,
+                        overview: project.overview,
+                        future: project.future,
+                        design: project.design,
+                        code: project.code,
+                        github: project.github
+                    };
+                })
+            };
+        }))
+            .subscribe(function (transformedProjectData) {
+            _this.webProjects = transformedProjectData.projects;
+            console.log(_this.webProjects);
+            _this.webProjectsUpdated.next({ projects: _this.webProjects.slice() });
+        });
+    };
+    ProjectsService.prototype.getWebPostsUpdateListener = function () {
+        return this.webProjectsUpdated.asObservable();
+    };
     ProjectsService.prototype.addProject = function (project) {
         /*Form Data for appending*/
         console.log(project);
@@ -1077,6 +1133,7 @@ var ProjectsService = /** @class */ (function () {
         projectData.append('future', project.future);
         projectData.append('design', project.design);
         projectData.append('code', project.code);
+        projectData.append('github', project.github);
         console.log(projectData);
         this.http.post('/api/projects', project)
             .subscribe(function (responseData) {
@@ -1085,7 +1142,7 @@ var ProjectsService = /** @class */ (function () {
     };
     ProjectsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({ providedIn: 'root' }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], ProjectsService);
     return ProjectsService;
 }());

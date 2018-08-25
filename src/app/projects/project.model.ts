@@ -3,7 +3,7 @@ export interface Project {
   _id: string;
   type: string;
   title: string;
-  languages: Array<string>;
+  languages: string;
   tagline: string;
   overview: string;
   design: string;

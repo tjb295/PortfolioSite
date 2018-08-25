@@ -64,12 +64,13 @@ export class ConsoleComponent implements OnInit {
       _id: '',
       title: this.form.value.title,
       type: this.form.value.type,
-      languages: [this.form.value.languages],
+      languages: this.form.value.languages,
       tagline: this.form.value.tagline,
       overview: this.form.value.overview,
       design: this.form.value.design,
       code: this.form.value.code,
-      future: this.form.value.future
+      future: this.form.value.future,
+      github: this.form.value.github
     };
     console.log(this.project);
 

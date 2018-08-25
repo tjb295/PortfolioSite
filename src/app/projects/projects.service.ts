@@ -11,12 +11,49 @@ import { Project } from './project.model';
 
 @Injectable({ providedIn: 'root'})
 export class ProjectsService {
-  private projects: Project[] = [];
+  private webProjects: Project[] = [];
+  private mobileProjects: Project[] = [];
+
+  private webProjectsUpdated = new Subject<{projects: Project[]}>();
 
   /*create subject for recieving from db*/
   private projectsUpdated = new Subject<{projects: Project[]}>();
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  /*Function for retrieving all projects*/
+  getWebPosts() {
+    this.http.get<{message: string, projects: any}>('/api/projects/Web')
+    .pipe(
+      map((projectData) => {
+        return {
+          projects: projectData.projects.map(project => {
+            return {
+              _id: project._id,
+              title: project.title,
+              type: 'web',
+              languages: project.languages,
+              tagline: project.tagline,
+              overview: project.overview,
+              future: project.future,
+              design: project.design,
+              code: project.code,
+              github: project.github
+            };
+          })
+        };
+      })
+    )
+    .subscribe(transformedProjectData => {
+      this.webProjects = transformedProjectData.projects;
+      console.log(this.webProjects);
+      this.webProjectsUpdated.next({ projects: [...this.webProjects]});
+    });
+  }
+
+  getWebPostsUpdateListener() {
+    return this.webProjectsUpdated.asObservable();
+  }
 
   addProject(project: Project) {
     /*Form Data for appending*/

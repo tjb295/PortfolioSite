@@ -1,4 +1,4 @@
-<mat-card *ngIf='projects.length == 0'>
+<mat-card *ngIf='webProjects.length == 0'>
   <mat-card-title>
     Still Under construction!
   </mat-card-title>
@@ -9,11 +9,12 @@
   </mat-card-header>
   <img mat-card-image src="https://png.icons8.com/metro/1600/under-construction.png" alt="Coming Soon!">
 </mat-card>
-<div *ngIf='projects.length > 0'>
-  <div class='ProjectsList' *ngFor='let project of projects'>
+<div *ngIf='webProjects.length > 0'>
+  <div class='ProjectsList' *ngFor='let project of webProjects'>
     <h1>{{project.title}}</h1>
     <img src='#' alt='Title Picture' >
     <p>{{project.tagline}}</p>
-    <a [routerLink="' /projects', project._id"]
+    <a [routerLink]="['/projects', project._id]"></a>
+    <p>See Code</p>
   </div>
 </div>
