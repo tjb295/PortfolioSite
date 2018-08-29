@@ -596,7 +596,7 @@ var SignupComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na {\n  text-decoration: none;\n  color: black\n}\n\n.spacer {\n  flex: 1 1 auto;\n}\n\nul {\n  display: flex\n}\n\nmat-form-field {\n  width: 100%\n}\n\ntextarea {\n  width: 100%\n}\n\nmat-spinner {\n  margin: auto;\n}\n\ninput[type=\"file\"] {\n  visibility: hidden;\n}\n\n.image-preview {\n  height: 5rem;\n  margin: 1rem 0;\n}\n\n.image-preview img {\n  height: 100%\n}\n\ndiv {\n  margin: auto\n}\n\nmat-card {\n  width: 80%;\n  margin: auto\n}\n\nmat-grid-tile {\n  overflow: scroll\n}\n"
+module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na {\n  text-decoration: none;\n  color: black\n}\n\n.spacer {\n  flex: 1 1 auto;\n}\n\nul {\n  display: flex\n}\n\nmat-form-field {\n  width: 100%\n}\n\ntextarea {\n  width: 100%\n}\n\nmat-spinner {\n  margin: auto;\n}\n\ninput[type=\"file\"] {\n  visibility: hidden;\n}\n\n.image-preview {\n  height: 5rem;\n  margin: 1rem 0;\n}\n\n.image-preview img {\n  height: 100%\n}\n\ndiv {\n  margin: auto\n}\n\nmat-card {\n  width: 80%;\n  margin: auto;\n  margin-top: 10px;\n}\n\nmat-grid-tile {\n  overflow: scroll\n}\n"
 
 /***/ }),
 
@@ -607,7 +607,7 @@ module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar>\n  <span>Project Management Console</span>\n  <span class='spacer'></span>\n  <ul>\n    <li>\n      <a routerLink='/console' routerLinkActive='mat-accent'>\n        Console Home\n      </a>\n    </li>\n    <li>\n      <a>\n        <button mat-button (click)='onLogout()'>Logout</button>\n      </a>\n    </li>\n  </ul>\n</mat-toolbar>\n<div class='projects'>\n\n</div>\n<div>\n    <mat-card>\n      <mat-card-title>\n        Enter a new Project\n      </mat-card-title>\n      <form [formGroup]='form' (submit)='onSavePost()'>\n\n        <mat-form-field>\n          <input\n            matInput\n            type='text'\n            formControlName='title'\n            placeholder='Project Title'\n            >\n            <mat-error *ngIf=\"form.get('title').invalid\">Please Enter a Title</mat-error>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input\n              matInput\n              placeholder='languages used'\n              formControlName='languages'\n            >\n          </mat-form-field>\n\n        <mat-form-field>\n          <mat-select\n            placeholder='Project Type'\n            formControlName='type'\n            >\n            <mat-option [value]=\" 'Mobile' \">\n              Mobile\n            </mat-option>\n            <mat-option [value]=\"'Web'\">\n              Web or Misc\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n        <div>\n          <button mat-stroked-button type=\"button\" (click)='filePicker.click()'>Pick a Thumbnail</button>\n          <input type='file' #filePicker (change)='onImagePickedEvent($event)'>\n        </div>\n        <div class='image-preview' *ngIf=\"imagePreview !== '' && imagePreview\">\n          <img [src]='imagePreview' [alt]='form.value.title'>\n        </div>\n\n        <mat-form-field>\n          <textarea\n            matInput\n            rows='10'\n            placeholder='tagline'\n            formControlName='tagline'\n            >\n          </textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea\n              matInput\n              rows='10'\n              placeholder='overview'\n              formControlName='overview'\n              >\n            </textarea>\n          </mat-form-field>\n\n          <mat-form-field>\n              <textarea\n                matInput\n                rows='10'\n                placeholder='design'\n                formControlName='design'\n                >\n              </textarea>\n            </mat-form-field>\n\n            <mat-form-field>\n                <textarea\n                  matInput\n                  rows='10'\n                  placeholder='code'\n                  formControlName='code'\n                  >\n                </textarea>\n              </mat-form-field>\n\n              <mat-form-field>\n                  <textarea\n                    matInput\n                    rows='10'\n                    placeholder='future'\n                    formControlName='future'\n                    >\n                  </textarea>\n                </mat-form-field>\n              <mat-form-field>\n                <input\n                  matInput\n                  placeholder='github link'\n                  formControlName='github'\n                  >\n              </mat-form-field>\n            <button mat-raised-button\n                color='primary'\n                type='submit'>\n              Save Post</button>\n      </form>\n    </mat-card>\n  </div>\n"
+module.exports = "<mat-toolbar>\n  <span>Project Management Console</span>\n  <span class='spacer'></span>\n  <ul>\n    <li>\n      <a routerLink='/' routerLinkActive='mat-accent'>\n        Home\n      </a>\n    </li>\n    <li>\n      <a>\n        <button mat-button (click)='onLogout()'>Logout</button>\n      </a>\n    </li>\n  </ul>\n</mat-toolbar>\n<div class='projects'>\n\n</div>\n<div>\n    <mat-card>\n      <mat-card-title>\n        Enter a new Project\n      </mat-card-title>\n      <form [formGroup]='form' (submit)='onSavePost()'>\n\n        <mat-form-field>\n          <input\n            matInput\n            type='text'\n            formControlName='title'\n            placeholder='Project Title'\n            >\n            <mat-error *ngIf=\"form.get('title').invalid\">Please Enter a Title</mat-error>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input\n              matInput\n              placeholder='languages used'\n              formControlName='languages'\n            >\n          </mat-form-field>\n\n        <mat-form-field>\n          <mat-select\n            placeholder='Project Type'\n            formControlName='type'\n            >\n            <mat-option [value]=\" 'Mobile' \">\n              Mobile\n            </mat-option>\n            <mat-option [value]=\"'Web'\">\n              Web or Misc\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n        <div>\n          <button mat-stroked-button type=\"button\" (click)='filePicker.click()'>Pick a Thumbnail</button>\n          <input type='file' #filePicker (change)='onImagePickedEvent($event)'>\n        </div>\n        <div class='image-preview' *ngIf=\"imagePreview !== '' && imagePreview\">\n          <img [src]='imagePreview' [alt]='form.value.title'>\n        </div>\n\n        <mat-form-field>\n          <textarea\n            matInput\n            rows='10'\n            placeholder='tagline'\n            formControlName='tagline'\n            >\n          </textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea\n              matInput\n              rows='10'\n              placeholder='overview'\n              formControlName='overview'\n              >\n            </textarea>\n          </mat-form-field>\n\n          <mat-form-field>\n              <textarea\n                matInput\n                rows='10'\n                placeholder='design'\n                formControlName='design'\n                >\n              </textarea>\n            </mat-form-field>\n\n            <mat-form-field>\n                <textarea\n                  matInput\n                  rows='10'\n                  placeholder='code'\n                  formControlName='code'\n                  >\n                </textarea>\n              </mat-form-field>\n\n              <mat-form-field>\n                  <textarea\n                    matInput\n                    rows='10'\n                    placeholder='future'\n                    formControlName='future'\n                    >\n                  </textarea>\n                </mat-form-field>\n              <mat-form-field>\n                <input\n                  matInput\n                  placeholder='github link'\n                  formControlName='github'\n                  >\n              </mat-form-field>\n            <button mat-raised-button\n                color='primary'\n                type='submit'>\n              Save Post</button>\n      </form>\n    </mat-card>\n  </div>\n"
 
 /***/ }),
 
@@ -1066,7 +1066,7 @@ module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div class='outer-div' *ngIf='webProjects.length > 0'>\n  <div class='inner-div' *ngFor='let project of webProjects'>\n    <div class='header-div'>\n        <h1>{{project.title}}</h1>\n        <img src='assets/scrn1.png' alt='Title Picture' >\n    </div>\n    <div class='body-div'>\n        <p class='tagline-div'>{{project.tagline}}</p>\n        <p class='languages-div' >{{project.languages}}</p>\n        <a [routerLink]=\"['/projects', project._id]\">Learn More</a>\n        <a href='{{project.github}}'><p class='github-link' >See Code</p></a>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div class='outer-div' *ngIf='webProjects.length > 0'>\n  <div class='inner-div' *ngFor='let project of webProjects'>\n    <div class='header-div'>\n        <h1>{{project.title}}</h1>\n        <img src='assets/scrn1.png' alt='Title Picture' >\n    </div>\n    <div class='body-div'>\n        <p class='tagline-div'>{{project.tagline}}</p>\n        <p class='languages-div' >{{project.languages}}</p>\n        <a [routerLink]=\"['/projects', project._id]\">Learn More</a>\n        <a href='{{project.github}}'><p class='github-link' >See Code</p></a>\n    </div>\n    <div *ngIf='userIsAuthenticated'>\n      <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1081,7 +1081,8 @@ module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectsComponent", function() { return ProjectsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _projects_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects.service */ "./src/app/projects/projects.service.ts");
+/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _projects_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects.service */ "./src/app/projects/projects.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1093,12 +1094,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ProjectsComponent = /** @class */ (function () {
-    function ProjectsComponent(projectsService) {
+    function ProjectsComponent(projectsService, authService) {
         this.projectsService = projectsService;
+        this.authService = authService;
         /*Gonna need to load in the projects somehow*/
         this.webProjects = [];
         this.mobileProjects = [];
+        this.isLoading = false;
+        this.userIsAuthenticated = false;
     }
     ProjectsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1106,6 +1111,19 @@ var ProjectsComponent = /** @class */ (function () {
         this.webProjectsSub = this.projectsService.getWebPostsUpdateListener()
             .subscribe(function (projectData) {
             _this.webProjects = projectData.projects;
+        });
+        /*Authentication for deleting and editing of project*/
+        this.userIsAuthenticated = this.authService.getIsAuth();
+        this.authStatusSub = this.authService.getAuthStatusListener().subscribe(function (isAuthenticated) {
+            _this.userIsAuthenticated = isAuthenticated;
+        });
+    };
+    ProjectsComponent.prototype.onDelete = function (projectId) {
+        var _this = this;
+        this.isLoading = true;
+        /*Call our service to make delete request*/
+        this.projectsService.deleteProject(projectId).subscribe(function () {
+            _this.projectsService.getWebPosts();
         });
     };
     ProjectsComponent.prototype.ngOnDestroy = function () {
@@ -1117,7 +1135,7 @@ var ProjectsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./projects.component.html */ "./src/app/projects/projects.component.html"),
             styles: [__webpack_require__(/*! ./projects.component.css */ "./src/app/projects/projects.component.css")]
         }),
-        __metadata("design:paramtypes", [_projects_service__WEBPACK_IMPORTED_MODULE_1__["ProjectsService"]])
+        __metadata("design:paramtypes", [_projects_service__WEBPACK_IMPORTED_MODULE_2__["ProjectsService"], _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
     ], ProjectsComponent);
     return ProjectsComponent;
 }());
@@ -1220,6 +1238,10 @@ var ProjectsService = /** @class */ (function () {
             .subscribe(function (responseData) {
             console.log(responseData);
         });
+    };
+    /*Delete Method */
+    ProjectsService.prototype.deleteProject = function (projectId) {
+        return this.http.delete('/api/projects/' + projectId);
     };
     ProjectsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({ providedIn: 'root' }),

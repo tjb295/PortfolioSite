@@ -82,4 +82,9 @@ export class ProjectsService {
     });
   }
 
+  /*Delete Method */
+  deleteProject(projectId: string) {
+    return this.http.delete('/api/projects/' + projectId);
+  }
+
 }

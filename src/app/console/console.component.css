@@ -48,7 +48,8 @@ div {
 
 mat-card {
   width: 80%;
-  margin: auto
+  margin: auto;
+  margin-top: 10px;
 }
 mat-grid-tile {
   overflow: scroll

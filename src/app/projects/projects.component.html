@@ -21,5 +21,8 @@
         <a [routerLink]="['/projects', project._id]">Learn More</a>
         <a href='{{project.github}}'><p class='github-link' >See Code</p></a>
     </div>
+    <div *ngIf='userIsAuthenticated'>
+      <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>
+    </div>
   </div>
 </div>
