@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Project } from '../projects/project.model';
 
@@ -16,11 +17,12 @@ import { mimeType } from './mime-type.validator';
 })
 export class ConsoleComponent implements OnInit {
 
-
+  private mode = 'create';
   private projectId: string;
   public project: Project;
   form: FormGroup;
   imagePreview: string;
+  isLoading = false;
 
   ngOnInit() {
     /*do form initialization*/
@@ -57,9 +59,52 @@ export class ConsoleComponent implements OnInit {
         asyncValidators: [mimeType]
       })
     });
+
+    /*Check route parameters for projectid*/
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has('projectId')) {
+        /*if we have projectId extract and use values*/
+        this.mode = 'edit';
+        this.projectId = paramMap.get('projectId');
+        console.log(this.projectId);
+        this.projectsService.getProject(this.projectId).subscribe(projectData => {
+          console.log(projectData);
+          this.isLoading = false;
+          this.project = {
+            title: projectData.title,
+            type: projectData.type,
+            _id: projectData._id,
+            tagline: projectData.tagline,
+            overview: projectData.overview,
+            design: projectData.design,
+            code: projectData.code,
+            future: projectData.future,
+            github: projectData.github,
+            image: projectData.image,
+            languages: projectData.languages
+          };
+          console.log(this.project);
+          this.form.setValue({
+            title: this.project.title,
+            type: projectData.type,
+            tagline: projectData.tagline,
+            overview: projectData.overview,
+            design: projectData.design,
+            code: projectData.code,
+            future: projectData.future,
+            github: projectData.github,
+            image: projectData.image,
+            languages: projectData.languages
+          });
+        });
+      } else {
+        this.mode = 'create';
+        this.projectId = null;
+      }
+    });
   }
 
-  constructor(private authService: AuthService, private projectsService: ProjectsService) {}
+  constructor(private authService: AuthService, private projectsService: ProjectsService, public route: ActivatedRoute) {}
 
   onSavePost() {
     if (this.form.invalid) {
@@ -82,7 +127,12 @@ export class ConsoleComponent implements OnInit {
     };
     console.log(this.project);
 
-    this.projectsService.addProject(this.project, this.form.value.image);
+    if (this.mode === 'create') {
+      this.projectsService.addProject(this.project, this.form.value.image);
+    } else {
+      console.log('da fuq i happening');
+      this.projectsService.updateProject(this.project, this.form.value.image, this.projectId);
+    }
     this.form.reset();
   }
 

@@ -82,6 +82,43 @@ export class ProjectsService {
     });
   }
 
+  /*Retrieve single Project*/
+  getProject(id: string) {
+    console.log(id + 'is this working wtf');
+    return this.http.get<{_id: string, title: string, type: string, languages: string, tagline: string, overview: string, design: string, code: string, future: string, github: string, image: string}>('/api/projects/single/' + id );
+  }
+
+  /*Update an existing project*/
+  updateProject(project: Project, image: File | string, projectId: string) {
+    let projectData: Project | FormData;
+    if (typeof(image) === 'object') {
+      /*Append each attrib of project to formData */
+      projectData = new FormData();
+      projectData.append('_id', projectId);
+      projectData.append('title', project.title);
+      projectData.append('type', project.type);
+      projectData.append('languages', project.languages);
+      projectData.append('tagline', project.tagline);
+      projectData.append('overview', project.overview);
+      projectData.append('future', project.future);
+      projectData.append('design', project.design);
+      projectData.append('code', project.code);
+      projectData.append('github', project.github);
+      projectData.append('image', image);
+    } else {
+      projectData = {...project, image: image};
+    }
+    console.log(project._id);
+    this.http.put('/api/projects/' + projectId, projectData)
+    .subscribe(response => {
+      console.log(response + 'HELP ME');
+      this.router.navigate(['/']);
+    });
+
+
+
+  }
+
   /*Delete Method */
   deleteProject(projectId: string) {
     return this.http.delete('/api/projects/' + projectId);

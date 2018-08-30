@@ -29,6 +29,11 @@ const routes: Routes = [
   {
     path: 'console', component: ConsoleComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit/:projectId',
+    component: ConsoleComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

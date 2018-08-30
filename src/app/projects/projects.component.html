@@ -22,6 +22,7 @@
         <a href='{{project.github}}'><p class='github-link' >See Code</p></a>
     </div>
     <div *ngIf='userIsAuthenticated'>
+      <a mat-button color='primary' [routerLink]="['/edit', project._id]">Edit</a>
       <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>
     </div>
   </div>

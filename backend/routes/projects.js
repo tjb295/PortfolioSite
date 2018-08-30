@@ -90,15 +90,45 @@ router.get('/:type', (req, res, next) => {
 });
 
 /*GET with url paramter of id: specific one for loading*/
-router.get('/:id', (req, res, next) => {
-  Project.findById(req.params._id)
+router.get('/single/:id', (req, res, next) => {
+  console.log('wtf');
+  console.log(req.params.id);
+  Project.findById(req.params.id)
   .then(project => {
+    console.log(project);
     if (project) {
       res.status(200).json(project);
     } else {
       res.status(404).json({message: 'Could not find post.'});
     }
   });
+});
+
+/*Updating a project*/
+router.put('/:id', multer({storage:storage}).single("image"), (req,res,next) => {
+  console.log('is anything happening');
+
+  const project = new Project({
+    _id: req.params.id,
+    type: req.body.type,
+    title: req.body.title,
+    languages: req.body.languages,
+    tagline: req.body.tagline,
+    overview: req.body.overview,
+    design: req.body.design,
+    code: req.body.code,
+    future: req.body.future,
+    github: req.body.github,
+    image: '/images/' + req.body.image
+  });
+
+  Project.update({_id: req.params.id}, project)
+  .then(results => {
+    res.status(200).json({
+      message: 'Update successful'
+    });
+  });
+
 });
 
 /*Delete Method for deleting project */
