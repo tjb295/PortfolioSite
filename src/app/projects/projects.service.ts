@@ -15,13 +15,14 @@ export class ProjectsService {
   private mobileProjects: Project[] = [];
 
   private webProjectsUpdated = new Subject<{projects: Project[]}>();
+  private mobileProjectsUpdated = new Subject<{projects: Project[]}>();
 
   /*create subject for recieving from db*/
   private projectsUpdated = new Subject<{projects: Project[]}>();
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  /*Function for retrieving all projects*/
+  /*Function for retrieving all web type projects*/
   getWebPosts() {
     this.http.get<{message: string, projects: any}>('/api/projects/Web')
     .pipe(
@@ -51,8 +52,41 @@ export class ProjectsService {
     });
   }
 
+  getMobilePosts() {
+    this.http.get<{message: string, projects: any}>('/api/projects/Mobile')
+    .pipe(
+      map((projectData) => {
+        return {
+          projects: projectData.projects.map(project => {
+            return {
+              _id: project._id,
+              title: project.title,
+              type: 'Web',
+              languages: project.languages,
+              tagline: project.tagline,
+              overview: project.overview,
+              future: project.future,
+              design: project.design,
+              code: project.code,
+              github: project.github
+            };
+          })
+        };
+      })
+    )
+    .subscribe(transformedProjectData => {
+      this.mobileProjects = transformedProjectData.projects;
+      console.log(this.webProjects);
+      this.mobileProjectsUpdated.next({ projects: [...this.mobileProjects]});
+    });
+  }
+
   getWebPostsUpdateListener() {
     return this.webProjectsUpdated.asObservable();
+  }
+
+  getMobilePostsUpdateListener() {
+    return this.mobileProjectsUpdated.asObservable();
   }
 
   addProject(project: Project, image: File) {
@@ -79,6 +113,7 @@ export class ProjectsService {
     this.http.post<{message: string, project: Project}>('/api/projects', project)
     .subscribe((responseData) => {
       console.log(responseData);
+      this.router.navigate(['/']);
     });
   }
 

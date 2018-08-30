@@ -13,11 +13,15 @@ import { Subscription } from 'rxjs/internal/Subscription';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
+
+  currentProjectType = 'web';
+
   /*Gonna need to load in the projects somehow*/
   webProjects: Project[] = [];
   mobileProjects: Project[] = [];
 
   webProjectsSub: Subscription;
+  mobileProjectsSub: Subscription;
 
   public selectedProject: string;
   public isLoading = false;
@@ -31,6 +35,12 @@ export class ProjectsComponent {
     this.webProjectsSub = this.projectsService.getWebPostsUpdateListener()
     .subscribe((projectData: { projects: Project[]} ) => {
       this.webProjects = projectData.projects;
+    });
+
+    this.projectsService.getMobilePosts();
+    this.mobileProjectsSub = this.projectsService.getMobilePostsUpdateListener()
+    .subscribe((projectData: { projects: Project[]}) => {
+      this.mobileProjects = projectData.projects;
     });
 
     /*Authentication for deleting and editing of project*/
@@ -52,6 +62,7 @@ export class ProjectsComponent {
   }
   ngOnDestroy() {
     this.webProjectsSub.unsubscribe();
+    this.mobileProjectsSub.unsubscribe();
   }
 
 }

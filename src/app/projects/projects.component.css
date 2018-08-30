@@ -11,23 +11,23 @@ a {
 img {
   max-width: 70%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .outer-div {
-  padding: 10%;
+  padding: 5%;
   padding-top: 0px;
   text-align: center;
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .inner-div {
   border-radius: 5px;
   display: inline-block;
   padding: 10%;
-  width: 90%;
+  width: 80%;
   box-shadow: 0 8px 6px -6px black;
 }
 
@@ -36,18 +36,24 @@ img {
   text-align: left;
   margin: 0px;
   padding: 0px;
-  width: 50%
+  width: 50%;
 }
 
 .header-div img {
   width: 45%;
-  float: left;
+  min-width: 100px;
+  float: center;
   margin: 0px;
   padding: 0px;
 }
 
 .tagline-div {
-  font-size: 22px;
+  font-size: 15px;
+}
+
+.body-div h1 {
+  margin-bottom: 20px;
+  font-size: 30px;
 }
 
 .body-div {
@@ -61,17 +67,45 @@ img {
   background-color: rgb(96, 87, 221);
   color: white;
   border-radius: 5px;
-  font-size: 20px;
-  padding:0;
-  text-align: center
+  font-size: 14px;
+  padding: 5px;
+  text-align: center;
+  width: 70%;
+  margin: 10px;
+}
+
+.learn-div {
+  background-color: rgb(156, 58, 96);
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  padding:10px;
+  text-align: center;
+  width: 70%;
+  margin: 10px;
 }
 
 .github-link {
-  background-color: rgb(54, 6, 54);
+  background-color: rgb(156, 58, 96);
   color: white;
   border-radius: 5px;
-  font-size: 20px;
-  padding:0;
+  font-size: 15px;
+  padding:10px;
   text-align: center;
-  width: auto
+  width: 70%;
+  margin: 10px;
+}
+
+.languages-outer-div {
+  background-color: white;
+  margin-bottom: 13px;
+  display: flex;
+  padding: 0px;
+}
+
+.options-div {
+  background-color: white;
+  margin: 10px;
+  display: flex;
+  padding: 10px;
 }

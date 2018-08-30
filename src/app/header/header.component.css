@@ -4,7 +4,7 @@
   background-image: url("https://cdnb.artstation.com/p/assets/images/images/005/544/735/large/daniel-simonavicius-rainy-window-300dpi-4000-samples.jpg?1491848183");
 
   /* Set a specific height */
-  height: 50%;
+  height: 40%;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
@@ -29,11 +29,11 @@ img:hover {
 }
 
 h1 {
-  font-size: 65px;
+  font-size: 55px;
 }
 
 p {
-  font-size: 20px;
+  font-size: 17px;
 }
 
 a, a:visited {

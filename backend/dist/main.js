@@ -860,7 +860,7 @@ var mimeType = function (control) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* The hero image */\n.hero-image {\n  /* The image used */\n  background-image: url(\"https://cdnb.artstation.com/p/assets/images/images/005/544/735/large/daniel-simonavicius-rainy-window-300dpi-4000-samples.jpg?1491848183\");\n\n  /* Set a specific height */\n  height: 50%;\n\n  /* Position and center the image to scale nicely on all screens */\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  position: relative;\n}\n/* Place text in the middle of the image */\n.hero-text {\n  text-align: center;\n  position: relative;\n  top: 50%;\n  left: 0%;\n  -webkit-transform: translate(0%, -50%);\n          transform: translate(0%, -50%);\n  color: white;\n  width: 50%;\n}\nimg:hover {\n  opacity: 0.5\n}\nh1 {\n  font-size: 65px;\n}\np {\n  font-size: 20px;\n}\na, a:visited {\n  color: inherit\n}\na img {\n  margin: 20px;\n  width: 12%;\n  max-width: 60px;\n}\n"
+module.exports = "/* The hero image */\n.hero-image {\n  /* The image used */\n  background-image: url(\"https://cdnb.artstation.com/p/assets/images/images/005/544/735/large/daniel-simonavicius-rainy-window-300dpi-4000-samples.jpg?1491848183\");\n\n  /* Set a specific height */\n  height: 40%;\n\n  /* Position and center the image to scale nicely on all screens */\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  position: relative;\n}\n/* Place text in the middle of the image */\n.hero-text {\n  text-align: center;\n  position: relative;\n  top: 50%;\n  left: 0%;\n  -webkit-transform: translate(0%, -50%);\n          transform: translate(0%, -50%);\n  color: white;\n  width: 50%;\n}\nimg:hover {\n  opacity: 0.5\n}\nh1 {\n  font-size: 55px;\n}\np {\n  font-size: 17px;\n}\na, a:visited {\n  color: inherit\n}\na img {\n  margin: 20px;\n  width: 12%;\n  max-width: 60px;\n}\n"
 
 /***/ }),
 
@@ -1009,7 +1009,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>what do u want u bitch</p>\n"
+module.exports = "<app-header></app-header>\n"
 
 /***/ }),
 
@@ -1055,7 +1055,7 @@ var ProjectSingleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "a {\n  margin-top: 20px;\n  margin-left: 0\n}\n\nimg {\n  max-width: 35%;\n  max-height:100%;\n  margin-top: 10px;\n}\n\na:hover {\n  opacity: 0.5;\n  text-decoration: none\n}\n\na p {\n  color: black;\n  font-size: 100%\n}\n\np {\n  margin: 0;\n  text-align: center\n}\n\n.icons-container {\n  margin: auto;\n  width: 50%;\n  align-items: center;\n  align-self: center;\n  text-align: center;\n  display: flex;\n}\n"
+module.exports = "a {\n  margin-top: 20px;\n  margin-left: 0\n}\n\nimg {\n  max-width: 20%;\n  max-height:100%;\n  margin-top: 10px;\n  min-width: 50px;\n}\n\na:hover {\n  opacity: 0.5;\n  text-decoration: none\n}\n\na p {\n  color: black;\n  font-size: 100%\n}\n\np {\n  margin: 0;\n  text-align: center\n}\n\n.icons-container {\n  margin: auto;\n  width: 50%;\n  align-items: center;\n  align-self: center;\n  text-align: center;\n  display: flex;\n}\n"
 
 /***/ }),
 
@@ -1115,7 +1115,7 @@ var ProjectsHeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n      align-self: center;\n  margin: auto\n}\n\na {\n  text-decoration: none;\n  color: rgb(46, 11, 46)\n}\n\nimg {\n  max-width: 70%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.outer-div {\n  padding: 10%;\n  padding-top: 0px;\n  text-align: center;\n  margin: 0;\n  margin-bottom: 10px;\n}\n\n.inner-div {\n  border-radius: 5px;\n  display: inline-block;\n  padding: 10%;\n  width: 90%;\n  box-shadow: 0 8px 6px -6px black;\n}\n\n.header-div {\n  float: left;\n  text-align: left;\n  margin: 0px;\n  padding: 0px;\n  width: 50%\n}\n\n.header-div img {\n  width: 45%;\n  float: left;\n  margin: 0px;\n  padding: 0px;\n}\n\n.tagline-div {\n  font-size: 22px;\n}\n\n.body-div {\n  float: right;\n  text-align: left;\n  width: 50%;\n  margin-left: 0px\n}\n\n.languages-div {\n  background-color: rgb(96, 87, 221);\n  color: white;\n  border-radius: 5px;\n  font-size: 20px;\n  padding:0;\n  text-align: center\n}\n\n.github-link {\n  background-color: rgb(54, 6, 54);\n  color: white;\n  border-radius: 5px;\n  font-size: 20px;\n  padding:0;\n  text-align: center;\n  width: auto\n}\n"
+module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n      align-self: center;\n  margin: auto\n}\n\na {\n  text-decoration: none;\n  color: rgb(46, 11, 46)\n}\n\nimg {\n  max-width: 70%;\n  display: block;\n  margin-left: 10px;\n  margin-right: 10px;\n}\n\n.outer-div {\n  padding: 5%;\n  padding-top: 0px;\n  text-align: center;\n  margin: 0;\n  margin-bottom: 5px;\n}\n\n.inner-div {\n  border-radius: 5px;\n  display: inline-block;\n  padding: 10%;\n  width: 80%;\n  box-shadow: 0 8px 6px -6px black;\n}\n\n.header-div {\n  float: left;\n  text-align: left;\n  margin: 0px;\n  padding: 0px;\n  width: 50%;\n}\n\n.header-div img {\n  width: 45%;\n  min-width: 100px;\n  float: center;\n  margin: 0px;\n  padding: 0px;\n}\n\n.tagline-div {\n  font-size: 15px;\n}\n\n.body-div h1 {\n  margin-bottom: 20px;\n  font-size: 30px;\n}\n\n.body-div {\n  float: right;\n  text-align: left;\n  width: 50%;\n  margin-left: 0px\n}\n\n.languages-div {\n  background-color: rgb(96, 87, 221);\n  color: white;\n  border-radius: 5px;\n  font-size: 14px;\n  padding: 5px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.learn-div {\n  background-color: rgb(156, 58, 96);\n  color: white;\n  border-radius: 5px;\n  font-size: 15px;\n  padding:10px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.github-link {\n  background-color: rgb(156, 58, 96);\n  color: white;\n  border-radius: 5px;\n  font-size: 15px;\n  padding:10px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.languages-outer-div {\n  background-color: white;\n  margin-bottom: 13px;\n  display: flex;\n  padding: 0px;\n}\n\n.options-div {\n  background-color: white;\n  margin: 10px;\n  display: flex;\n  padding: 10px;\n}\n"
 
 /***/ }),
 
@@ -1126,7 +1126,7 @@ module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div class='outer-div' *ngIf='webProjects.length > 0'>\n  <div class='inner-div' *ngFor='let project of webProjects'>\n    <div class='header-div'>\n        <h1>{{project.title}}</h1>\n        <img src='assets/scrn1.png' alt='Title Picture' >\n    </div>\n    <div class='body-div'>\n        <p class='tagline-div'>{{project.tagline}}</p>\n        <p class='languages-div' >{{project.languages}}</p>\n        <a [routerLink]=\"['/projects', project._id]\">Learn More</a>\n        <a href='{{project.github}}'><p class='github-link' >See Code</p></a>\n    </div>\n    <div *ngIf='userIsAuthenticated'>\n      <a mat-button color='primary' [routerLink]=\"['/edit', project._id]\">Edit</a>\n      <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div class='outer-div' *ngIf='webProjects.length > 0'>\n  <div class='inner-div' *ngFor='let project of webProjects'>\n    <div class='header-div'>\n        <img src='assets/scrn1.png' alt='Title Picture' >\n    </div>\n    <div class='body-div'>\n\n        <h1>{{project.title}}</h1>\n        <p class='tagline-div'>{{project.tagline}}</p>\n        <div class='languages-outer-div' >\n            <p class='languages-div' *ngFor='let language of project.languages.split(\" \")' >{{language}}</p>\n        </div>\n        <div class='option-div'>\n            <a class='learn-div' [routerLink]=\"['/projects', project._id]\">Learn More</a>\n            <a href='{{project.github}}' class='github-link'>See Code</a>\n        </div>\n\n    </div>\n    <div *ngIf='userIsAuthenticated'>\n      <a mat-button color='primary' [routerLink]=\"['/edit', project._id]\">Edit</a>\n      <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1159,6 +1159,7 @@ var ProjectsComponent = /** @class */ (function () {
     function ProjectsComponent(projectsService, authService) {
         this.projectsService = projectsService;
         this.authService = authService;
+        this.currentProjectType = 'web';
         /*Gonna need to load in the projects somehow*/
         this.webProjects = [];
         this.mobileProjects = [];
@@ -1171,6 +1172,11 @@ var ProjectsComponent = /** @class */ (function () {
         this.webProjectsSub = this.projectsService.getWebPostsUpdateListener()
             .subscribe(function (projectData) {
             _this.webProjects = projectData.projects;
+        });
+        this.projectsService.getMobilePosts();
+        this.mobileProjectsSub = this.projectsService.getMobilePostsUpdateListener()
+            .subscribe(function (projectData) {
+            _this.mobileProjects = projectData.projects;
         });
         /*Authentication for deleting and editing of project*/
         this.userIsAuthenticated = this.authService.getIsAuth();
@@ -1188,6 +1194,7 @@ var ProjectsComponent = /** @class */ (function () {
     };
     ProjectsComponent.prototype.ngOnDestroy = function () {
         this.webProjectsSub.unsubscribe();
+        this.mobileProjectsSub.unsubscribe();
     };
     ProjectsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1250,10 +1257,11 @@ var ProjectsService = /** @class */ (function () {
         this.webProjects = [];
         this.mobileProjects = [];
         this.webProjectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.mobileProjectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
         /*create subject for recieving from db*/
         this.projectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
     }
-    /*Function for retrieving all projects*/
+    /*Function for retrieving all web type projects*/
     ProjectsService.prototype.getWebPosts = function () {
         var _this = this;
         this.http.get('/api/projects/Web')
@@ -1281,10 +1289,41 @@ var ProjectsService = /** @class */ (function () {
             _this.webProjectsUpdated.next({ projects: _this.webProjects.slice() });
         });
     };
+    ProjectsService.prototype.getMobilePosts = function () {
+        var _this = this;
+        this.http.get('/api/projects/Mobile')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (projectData) {
+            return {
+                projects: projectData.projects.map(function (project) {
+                    return {
+                        _id: project._id,
+                        title: project.title,
+                        type: 'Web',
+                        languages: project.languages,
+                        tagline: project.tagline,
+                        overview: project.overview,
+                        future: project.future,
+                        design: project.design,
+                        code: project.code,
+                        github: project.github
+                    };
+                })
+            };
+        }))
+            .subscribe(function (transformedProjectData) {
+            _this.mobileProjects = transformedProjectData.projects;
+            console.log(_this.webProjects);
+            _this.mobileProjectsUpdated.next({ projects: _this.mobileProjects.slice() });
+        });
+    };
     ProjectsService.prototype.getWebPostsUpdateListener = function () {
         return this.webProjectsUpdated.asObservable();
     };
+    ProjectsService.prototype.getMobilePostsUpdateListener = function () {
+        return this.mobileProjectsUpdated.asObservable();
+    };
     ProjectsService.prototype.addProject = function (project, image) {
+        var _this = this;
         /*Form Data for appending*/
         console.log(project);
         console.log(image);
@@ -1305,6 +1344,7 @@ var ProjectsService = /** @class */ (function () {
         this.http.post('/api/projects', project)
             .subscribe(function (responseData) {
             console.log(responseData);
+            _this.router.navigate(['/']);
         });
     };
     /*Retrieve single Project*/
