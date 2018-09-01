@@ -13,9 +13,10 @@ const projectSchema = mongoose.Schema({
   github: String,
   image: String,
   titleImg: String,
-  projectImg: [String],
-  designImg: [String],
-  technologyImg: [String]
+  projectImg: String,
+  designImg: String,
+  techImg: String,
+  thumbNail: String
 });
 
 module.exports = mongoose.model('Project', projectSchema);

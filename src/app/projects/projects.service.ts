@@ -17,6 +17,8 @@ export class ProjectsService {
   private webProjectsUpdated = new Subject<{projects: Project[]}>();
   private mobileProjectsUpdated = new Subject<{projects: Project[]}>();
 
+  public typeStatusListener = new Subject<string>();
+
   /*create subject for recieving from db*/
   private projectsUpdated = new Subject<{projects: Project[]}>();
 
@@ -89,6 +91,15 @@ export class ProjectsService {
     return this.mobileProjectsUpdated.asObservable();
   }
 
+  /*Subject to listen for type change*/
+  getTypeStatusListener() {
+    return this.typeStatusListener.asObservable();
+  }
+
+  setType(type: string) {
+    this.typeStatusListener.next(type);
+  }
+
   addProject(project: Project, image: File) {
     /*Form Data for appending*/
     console.log(project);
@@ -107,6 +118,11 @@ export class ProjectsService {
     projectData.append('code', project.code);
     projectData.append('github', project.github);
     projectData.append('image', project.image);
+    projectData.append('projectImg', project.projectImg);
+    projectData.append('techImg', project.techImg);
+    projectData.append('thumbNail', project.thumbNail);
+    console.log(project.thumbNail);
+    projectData.append('designImg', project.designImg);
 
     console.log(projectData);
 
@@ -120,7 +136,7 @@ export class ProjectsService {
   /*Retrieve single Project*/
   getProject(id: string) {
     console.log(id + 'is this working wtf');
-    return this.http.get<{_id: string, title: string, type: string, languages: string, tagline: string, overview: string, design: string, code: string, future: string, github: string, image: string}>('/api/projects/single/' + id );
+    return this.http.get<{_id: string, title: string, type: string, languages: string, tagline: string, overview: string, design: string, code: string, future: string, github: string, image: string, thumbNail: string, projectImg: string, techImg: string, designImg: string}>('/api/projects/single/' + id );
   }
 
   /*Update an existing project*/
@@ -140,6 +156,10 @@ export class ProjectsService {
       projectData.append('code', project.code);
       projectData.append('github', project.github);
       projectData.append('image', image);
+      projectData.append('projectImg', project.projectImg);
+      projectData.append('techImg', project.techImg);
+      projectData.append('thumbNail', project.thumbNail);
+      projectData.append('designImg', project.designImg);
     } else {
       projectData = {...project, image: image};
     }

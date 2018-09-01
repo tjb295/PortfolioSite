@@ -30,6 +30,9 @@ export class ConsoleComponent implements OnInit {
       title: new FormControl(null, {
         validators: [Validators.required]
       }),
+      thumbNail: new FormControl(null, {
+        validators: [Validators.required]
+      }),
       languages: new FormControl(null, {
         validators: [Validators.required]
       }),
@@ -43,6 +46,15 @@ export class ConsoleComponent implements OnInit {
         validators: [Validators.required]
       }),
       design: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      techImg: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      designImg: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      projectImg: new FormControl(null, {
         validators: [Validators.required]
       }),
       code: new FormControl(null, {
@@ -81,7 +93,11 @@ export class ConsoleComponent implements OnInit {
             future: projectData.future,
             github: projectData.github,
             image: projectData.image,
-            languages: projectData.languages
+            languages: projectData.languages,
+            projectImg: projectData.projectImg,
+            techImg: projectData.techImg,
+            thumbNail: projectData.thumbNail,
+            designImg: projectData.designImg
           };
           console.log(this.project);
           this.form.setValue({
@@ -94,7 +110,11 @@ export class ConsoleComponent implements OnInit {
             future: projectData.future,
             github: projectData.github,
             image: projectData.image,
-            languages: projectData.languages
+            languages: projectData.languages,
+            projectImg: projectData.projectImg,
+            techImg: projectData.techImg,
+            thumbNail: projectData.thumbNail,
+            designImg: projectData.designImg
           });
         });
       } else {
@@ -123,7 +143,11 @@ export class ConsoleComponent implements OnInit {
       code: this.form.value.code,
       future: this.form.value.future,
       github: this.form.value.github,
-      image: 'scrn1.png'
+      image: 'scrn1.png',
+      projectImg: this.form.value.projectImg,
+      thumbNail: this.form.value.thumbNail,
+      techImg: this.form.value.techImg,
+      designImg: this.form.value.designImg
     };
     console.log(this.project);
 

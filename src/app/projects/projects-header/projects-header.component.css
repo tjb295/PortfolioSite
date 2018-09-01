@@ -1,6 +1,6 @@
 a {
   margin-top: 20px;
-  margin-left: 0
+  margin-left: 0;
 }
 
 img {
@@ -32,4 +32,15 @@ p {
   align-self: center;
   text-align: center;
   display: flex;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.activated {
+  border-bottom: 3px solid;
+  height: 100%
+}
+
+.inner-div {
+  max-width: 100px
 }

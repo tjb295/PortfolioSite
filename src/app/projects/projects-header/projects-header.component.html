@@ -1,10 +1,16 @@
 <div class='icons-container'>
-  <a RouterLink='projects/mobile'>
-    <p>Mobile</p>
-    <img src='https://image.flaticon.com/icons/svg/35/35375.svg' alt='Mobile Projects'>
-  </a>
-  <a href='projects/web' (mouseenter)='showText($event)'>
-    <p>Web and Misc.</p>
-    <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEX///8AAACxsbFdXV1xcXHDw8NAQECjo6PV1dUvLy9KSkr4+Pj8/Py1tbXR0dG6urrd3d16enpnZ2eTk5Pp6enx8fGdnZ1PT0/j4+ONjY0fHx9UVFTIyMgZGRmEhIQNDQ0pKSk4ODhsbGyx9cs+AAAEg0lEQVR4nO2daXuqMBBGxQ0XtCLiUrfq//+RF1xCgLDDnRl9z4c+rMmcFhKShtDrAQDA/2LjrQefxNrbxAUX1ufxowvuqaPpBP2veKAOphO2muGaOphOcDXDAXUwnTCEoXi+1NBd9KWzcHMNF2Wef5izyDXsk8XVHn0YigeG8oGhfGAoHxjKB4bygaF8YGhgPuLKvB3Di8WXQxuGnAWNilUN5zSRlyZ9oVY1PNEEXppTY8MRTeClGcEQht9keN3N+LC7dmA4Tu2iZAxDGEbAkAgYwlADhkTAEIYaMCQChjDUgCERMIShBgyJgCEMNWBIBAxhqAFDIpgbbj2v6cAd3oYbK/5uYB14G4YhrBqmwdswzK1pGrwNE5nXgrXh0kq8Z10H1oZekJjfNBFuhnNHW7m90nKMIwtLwstw71qaoR+k5YULjuXua6fJyXC0C07WDH+C1WW44AQLu3SA5WBj6G+fJ2uGd+tVVzjPXdta9yQTw8n9fbJmGKytHwvOe+d9Uj1pFoaL2/vU5333ZBLl4qn9t8rvH9MbbqKpNsaxyi+8bNWUHD8qUOuwSSeSA7XhMnrB3008gc4sa6qtrtS75dZgWSEHUkPH/nuf82sn67xwUPUlvsX+fR/+Zzu9khAa7qOR78f0COVHcqnNp6M651KyiiQzHM2iWI03VnhRGjZvot/LrFQVSWS4PavrrZ9xvQVHDIw7nL66ts8lmsdEhu9D15llRjhdk521c6kmAirOitLwnPeQYgcH5Nxp/usqKM6K1PCQoxAUKb85CewPEgwDjlmFRfigdsnYF2SlitTirKhKGjW+/Lw1Nv5OxpAezKNi6sq3pHk1lV7pG7rTwjrBqL4aqvPKNah41PjjVG9MUCHsDOdoj6fsa/wQpz9VAXuxctXYFbyJmhjTrFo0DfmTdzTFnV43GrqCM44shNowqNk8VepEzzfJrmDtOebqVWvq0xv24nfXc0si17w7tggWhnrj7/FXTHQFq16MZBOyDEwMo8bfwzDRFfw0TDchS8HGMOA0eBve4omEhgNDE7IUnAwffTahoeoKfuFU7ZvR4WUYyIQ/wrnwJqmtNeFm+EB1BbcBS0Pr3RXcBhwNJ8bk68LRMNYV3BiOhomu4IYwNAzriuzmfWUYGjq+7zepHhIwNGwZGMJQA4ZEwBCGGjAkAoYw1IAhETCEoQYMiYAhDDVgSAQMYagBQyJgCEMNGBLRheF1yokuZkpmCgxh+A2G3L/+kB52W9XQMSfMhvTYgMpfYdnSRF4SwytG1b+kY9PEXgpTvHW+97Sa8MQ8thhftJIPDOUDQ/nAUD4wlA8M5QND+cBQPvmGlWekYsgi13Boy2eYa/hRwFA+32V4Lz5cIK5m6BUfLhC9P3xDHUwnxOYS4f4/tDokpmvwbXfYNdHd3nlWQ7fedBtNUYYUmf8P5jAUDwzlA0P5wFA+MJQPDOUDQ/nAUD4wlA8M5QND+cBQPjCUDwzl8/mGjnzDfgHKcFFwILVIJlZbUItkAkMYwpAeGMKQv+Fu0A5HahEAAKjGP9+CdQc3In5yAAAAAElFTkSuQmCC' alt='Web Applications'>
-  </a>
+  <div [ngClass]="{'activated': currentlySelected=='Mobile'}"
+       [@activeType]="State"   (click)="toggleState()"
+  >
+      <a  >
+          <p  >Mobile</p>
+          <img  (click)='setType("Mobile")'  src='https://image.flaticon.com/icons/svg/35/35375.svg' alt='Mobile Projects'>
+        </a>
+  </div>
+  <div style="height: 100%"[ngClass]="{'activated': currentlySelected=='Web'}" >
+      <a  (click)='setType("Web")' >
+          <p  >Web and Misc.</p>
+          <img  src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEX///8AAACxsbFdXV1xcXHDw8NAQECjo6PV1dUvLy9KSkr4+Pj8/Py1tbXR0dG6urrd3d16enpnZ2eTk5Pp6enx8fGdnZ1PT0/j4+ONjY0fHx9UVFTIyMgZGRmEhIQNDQ0pKSk4ODhsbGyx9cs+AAAEg0lEQVR4nO2daXuqMBBGxQ0XtCLiUrfq//+RF1xCgLDDnRl9z4c+rMmcFhKShtDrAQDA/2LjrQefxNrbxAUX1ufxowvuqaPpBP2veKAOphO2muGaOphOcDXDAXUwnTCEoXi+1NBd9KWzcHMNF2Wef5izyDXsk8XVHn0YigeG8oGhfGAoHxjKB4bygaF8YGhgPuLKvB3Di8WXQxuGnAWNilUN5zSRlyZ9oVY1PNEEXppTY8MRTeClGcEQht9keN3N+LC7dmA4Tu2iZAxDGEbAkAgYwlADhkTAEIYaMCQChjDUgCERMIShBgyJgCEMNWBIBAxhqAFDIpgbbj2v6cAd3oYbK/5uYB14G4YhrBqmwdswzK1pGrwNE5nXgrXh0kq8Z10H1oZekJjfNBFuhnNHW7m90nKMIwtLwstw71qaoR+k5YULjuXua6fJyXC0C07WDH+C1WW44AQLu3SA5WBj6G+fJ2uGd+tVVzjPXdta9yQTw8n9fbJmGKytHwvOe+d9Uj1pFoaL2/vU5333ZBLl4qn9t8rvH9MbbqKpNsaxyi+8bNWUHD8qUOuwSSeSA7XhMnrB3008gc4sa6qtrtS75dZgWSEHUkPH/nuf82sn67xwUPUlvsX+fR/+Zzu9khAa7qOR78f0COVHcqnNp6M651KyiiQzHM2iWI03VnhRGjZvot/LrFQVSWS4PavrrZ9xvQVHDIw7nL66ts8lmsdEhu9D15llRjhdk521c6kmAirOitLwnPeQYgcH5Nxp/usqKM6K1PCQoxAUKb85CewPEgwDjlmFRfigdsnYF2SlitTirKhKGjW+/Lw1Nv5OxpAezKNi6sq3pHk1lV7pG7rTwjrBqL4aqvPKNah41PjjVG9MUCHsDOdoj6fsa/wQpz9VAXuxctXYFbyJmhjTrFo0DfmTdzTFnV43GrqCM44shNowqNk8VepEzzfJrmDtOebqVWvq0xv24nfXc0si17w7tggWhnrj7/FXTHQFq16MZBOyDEwMo8bfwzDRFfw0TDchS8HGMOA0eBve4omEhgNDE7IUnAwffTahoeoKfuFU7ZvR4WUYyIQ/wrnwJqmtNeFm+EB1BbcBS0Pr3RXcBhwNJ8bk68LRMNYV3BiOhomu4IYwNAzriuzmfWUYGjq+7zepHhIwNGwZGMJQA4ZEwBCGGjAkAoYw1IAhETCEoQYMiYAhDDVgSAQMYagBQyJgCEMNGBLRheF1yokuZkpmCgxh+A2G3L/+kB52W9XQMSfMhvTYgMpfYdnSRF4SwytG1b+kY9PEXgpTvHW+97Sa8MQ8thhftJIPDOUDQ/nAUD4wlA8M5QND+cBQPvmGlWekYsgi13Boy2eYa/hRwFA+32V4Lz5cIK5m6BUfLhC9P3xDHUwnxOYS4f4/tDokpmvwbXfYNdHd3nlWQ7fedBtNUYYUmf8P5jAUDwzlA0P5wFA+MJQPDOUDQ/nAUD4wlA8M5QND+cBQPjCUDwzl8/mGjnzDfgHKcFFwILVIJlZbUItkAkMYwpAeGMKQv+Fu0A5HahEAAKjGP9+CdQc3In5yAAAAAElFTkSuQmCC' alt='Web Applications'>
+        </a>
+  </div>
 </div>

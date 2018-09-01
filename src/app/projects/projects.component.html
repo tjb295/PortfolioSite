@@ -1,4 +1,4 @@
-<mat-card *ngIf='webProjects.length == 0'>
+<mat-card *ngIf='webProjects.length == 0 && mobileProjects.length == 0'>
   <mat-card-title>
     Still Under construction!
   </mat-card-title>
@@ -9,27 +9,54 @@
   </mat-card-header>
   <img mat-card-image src="https://png.icons8.com/metro/1600/under-construction.png" alt="Coming Soon!">
 </mat-card>
-<div class='outer-div' *ngIf='webProjects.length > 0'>
-  <div class='inner-div' *ngFor='let project of webProjects'>
-    <div class='header-div'>
-        <img src='assets/scrn1.png' alt='Title Picture' >
-    </div>
-    <div class='body-div'>
+<div class='outer-div' *ngIf='webProjects.length > 0 || mobileProjects.length > 0'>
+  <div *ngIf="currentProjectType=='Mobile'">
+      <div class='inner-div' *ngFor='let project of mobileProjects'>
+          <div class='header-div'>
+              <img src='assets/scrn1.png' alt='Title Picture' >
+          </div>
+          <div class='body-div'>
 
-        <h1>{{project.title}}</h1>
-        <p class='tagline-div'>{{project.tagline}}</p>
-        <div class='languages-outer-div' >
-            <p class='languages-div' *ngFor='let language of project.languages.split(" ")' >{{language}}</p>
-        </div>
-        <div class='option-div'>
-            <a class='learn-div' [routerLink]="['/projects', project._id]">Learn More</a>
-            <a href='{{project.github}}' class='github-link'>See Code</a>
-        </div>
+              <h1>{{project.title}}</h1>
+              <p class='tagline-div'>{{project.tagline}}</p>
+              <div class='languages-outer-div' >
+                  <p class='languages-div' *ngFor='let language of project.languages.split(" ")' >{{language}}</p>
+              </div>
+              <div class='option-div'>
+                  <a class='learn-div' [routerLink]="['/projects', project._id]">Learn More</a>
+                  <a href='{{project.github}}' class='github-link'>See Code</a>
+              </div>
 
-    </div>
-    <div *ngIf='userIsAuthenticated'>
-      <a mat-button color='primary' [routerLink]="['/edit', project._id]">Edit</a>
-      <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>
-    </div>
+          </div>
+          <div *ngIf='userIsAuthenticated'>
+            <a mat-button color='primary' [routerLink]="['/edit', project._id]">Edit</a>
+            <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>
+          </div>
+        </div>
   </div>
+  <div *ngIf="currentProjectType=='Web'">
+      <div class='inner-div' *ngFor='let project of webProjects'>
+          <div class='header-div'>
+              <img src='assets/scrn1.png' alt='Title Picture' >
+          </div>
+          <div class='body-div'>
+
+              <h1>{{project.title}}</h1>
+              <p class='tagline-div'>{{project.tagline}}</p>
+              <div class='languages-outer-div' >
+                  <p class='languages-div' *ngFor='let language of project.languages.split(" ")' >{{language}}</p>
+              </div>
+              <div class='option-div'>
+                  <a class='learn-div' [routerLink]="['/projects', project._id]">Learn More</a>
+                  <a href='{{project.github}}' class='github-link'>See Code</a>
+              </div>
+
+          </div>
+          <div *ngIf='userIsAuthenticated'>
+            <a mat-button color='primary' [routerLink]="['/edit', project._id]">Edit</a>
+            <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>
+          </div>
+        </div>
+  </div>
+
 </div>

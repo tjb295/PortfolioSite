@@ -24,7 +24,6 @@ import { MatToolbarModule,
          MatSelectModule
 } from '@angular/material';
 
-
 import { ProjectsComponent } from './projects/projects.component';
 import { TabComponent } from './tab/tab.component';
 import { HeaderComponent } from './header/header.component';

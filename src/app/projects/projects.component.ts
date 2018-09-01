@@ -7,6 +7,8 @@ import { Project } from './project.model';
 import { ProjectsService } from './projects.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 
+import { ProjectsHeaderComponent } from './projects-header/projects-header.component';
+
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -14,7 +16,8 @@ import { Subscription } from 'rxjs/internal/Subscription';
 })
 export class ProjectsComponent {
 
-  currentProjectType = 'web';
+  currentProjectType = 'Mobile';
+  projectTypeSub: Subscription;
 
   /*Gonna need to load in the projects somehow*/
   webProjects: Project[] = [];
@@ -22,6 +25,9 @@ export class ProjectsComponent {
 
   webProjectsSub: Subscription;
   mobileProjectsSub: Subscription;
+
+  /*Sub to listen for switch from displaying mobile*/
+
 
   public selectedProject: string;
   public isLoading = false;
@@ -50,6 +56,13 @@ export class ProjectsComponent {
         this.userIsAuthenticated = isAuthenticated;
       }
     );
+
+    /*listener for type of project to display*/
+    this.projectTypeSub = this.projectsService.getTypeStatusListener()
+    .subscribe(projectType => {
+      console.log(projectType + ' in sub');
+      this.currentProjectType = projectType;
+    });
   }
 
   onDelete(projectId: string) {
@@ -57,12 +70,14 @@ export class ProjectsComponent {
     /*Call our service to make delete request*/
     this.projectsService.deleteProject(projectId).subscribe(() => {
       this.projectsService.getWebPosts();
+      this.projectsService.getMobilePosts();
     });
 
   }
   ngOnDestroy() {
     this.webProjectsSub.unsubscribe();
     this.mobileProjectsSub.unsubscribe();
+    this.projectTypeSub.unsubscribe();
   }
 
 }

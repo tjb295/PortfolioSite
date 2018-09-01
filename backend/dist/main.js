@@ -612,7 +612,7 @@ module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar>\n  <span>Project Management Console</span>\n  <span class='spacer'></span>\n  <ul>\n    <li>\n      <a routerLink='/' routerLinkActive='mat-accent'>\n        Home\n      </a>\n    </li>\n    <li>\n      <a>\n        <button mat-button (click)='onLogout()'>Logout</button>\n      </a>\n    </li>\n  </ul>\n</mat-toolbar>\n<div class='projects'>\n\n</div>\n<div>\n    <mat-card>\n      <mat-card-title>\n        Enter a new Project\n      </mat-card-title>\n      <form [formGroup]='form' (submit)='onSavePost()'>\n\n        <mat-form-field>\n          <input\n            matInput\n            type='text'\n            formControlName='title'\n            placeholder='Project Title'\n            >\n            <mat-error *ngIf=\"form.get('title').invalid\">Please Enter a Title</mat-error>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input\n              matInput\n              placeholder='languages used'\n              formControlName='languages'\n            >\n          </mat-form-field>\n\n        <mat-form-field>\n          <mat-select\n            placeholder='Project Type'\n            formControlName='type'\n            >\n            <mat-option [value]=\" 'Mobile' \">\n              Mobile\n            </mat-option>\n            <mat-option [value]=\"'Web'\">\n              Web or Misc\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n        <div>\n          <button mat-stroked-button type=\"button\" (click)='filePicker.click()'>Pick a Thumbnail</button>\n          <input type='file' #filePicker (change)='onImagePickedEvent($event)'>\n        </div>\n        <div class='image-preview' *ngIf=\"imagePreview !== '' && imagePreview\">\n          <img [src]='imagePreview' [alt]='form.value.title'>\n        </div>\n\n        <mat-form-field>\n          <textarea\n            matInput\n            rows='10'\n            placeholder='tagline'\n            formControlName='tagline'\n            >\n          </textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea\n              matInput\n              rows='10'\n              placeholder='overview'\n              formControlName='overview'\n              >\n            </textarea>\n          </mat-form-field>\n\n          <mat-form-field>\n              <textarea\n                matInput\n                rows='10'\n                placeholder='design'\n                formControlName='design'\n                >\n              </textarea>\n            </mat-form-field>\n\n            <mat-form-field>\n                <textarea\n                  matInput\n                  rows='10'\n                  placeholder='code'\n                  formControlName='code'\n                  >\n                </textarea>\n              </mat-form-field>\n\n              <mat-form-field>\n                  <textarea\n                    matInput\n                    rows='10'\n                    placeholder='future'\n                    formControlName='future'\n                    >\n                  </textarea>\n                </mat-form-field>\n              <mat-form-field>\n                <input\n                  matInput\n                  placeholder='github link'\n                  formControlName='github'\n                  >\n              </mat-form-field>\n            <button mat-raised-button\n                color='primary'\n                type='submit'>\n              Save Post</button>\n      </form>\n    </mat-card>\n  </div>\n"
+module.exports = "<mat-toolbar>\n  <span>Project Management Console</span>\n  <span class='spacer'></span>\n  <ul>\n    <li>\n      <a routerLink='/' routerLinkActive='mat-accent'>\n        Home\n      </a>\n    </li>\n    <li>\n      <a>\n        <button mat-button (click)='onLogout()'>Logout</button>\n      </a>\n    </li>\n  </ul>\n</mat-toolbar>\n<div class='projects'>\n\n</div>\n<div>\n    <mat-card>\n      <mat-card-title>\n        Enter a new Project\n      </mat-card-title>\n      <form [formGroup]='form' (submit)='onSavePost()'>\n\n        <mat-form-field>\n          <input\n            matInput\n            type='text'\n            formControlName='title'\n            placeholder='Project Title'\n            >\n            <mat-error *ngIf=\"form.get('title').invalid\">Please Enter a Title</mat-error>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input\n              matInput\n              placeholder='languages used'\n              formControlName='languages'\n            >\n          </mat-form-field>\n\n        <mat-form-field>\n          <mat-select\n            placeholder='Project Type'\n            formControlName='type'\n            >\n            <mat-option [value]=\" 'Mobile' \">\n              Mobile\n            </mat-option>\n            <mat-option [value]=\"'Web'\">\n              Web or Misc\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n        <div>\n          <button mat-stroked-button type=\"button\" (click)='filePicker.click()'>Pick a Thumbnail</button>\n          <input type='file' #filePicker (change)='onImagePickedEvent($event)'>\n        </div>\n        <div class='image-preview' *ngIf=\"imagePreview !== '' && imagePreview\">\n          <img [src]='imagePreview' [alt]='form.value.title'>\n        </div>\n        <mat-form-field>\n          <input\n            matInput\n            placeholder='thumbnail'\n            formControlName='thumbNail'\n            >\n        </mat-form-field>\n        <mat-form-field>\n            <input\n              matInput\n              placeholder='design images'\n              formControlName='designImg'\n              >\n          </mat-form-field>\n          <mat-form-field>\n              <input\n                matInput\n                placeholder='projectImg'\n                formControlName='projectImg'\n                >\n            </mat-form-field>\n            <mat-form-field>\n                <input\n                  matInput\n                  placeholder='techImg'\n                  formControlName='techImg'\n                  >\n              </mat-form-field>\n        <mat-form-field>\n          <textarea\n            matInput\n            rows='10'\n            placeholder='tagline'\n            formControlName='tagline'\n            >\n          </textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea\n              matInput\n              rows='10'\n              placeholder='overview'\n              formControlName='overview'\n              >\n            </textarea>\n          </mat-form-field>\n\n          <mat-form-field>\n              <textarea\n                matInput\n                rows='10'\n                placeholder='design'\n                formControlName='design'\n                >\n              </textarea>\n            </mat-form-field>\n\n            <mat-form-field>\n                <textarea\n                  matInput\n                  rows='10'\n                  placeholder='code'\n                  formControlName='code'\n                  >\n                </textarea>\n              </mat-form-field>\n\n              <mat-form-field>\n                  <textarea\n                    matInput\n                    rows='10'\n                    placeholder='future'\n                    formControlName='future'\n                    >\n                  </textarea>\n                </mat-form-field>\n              <mat-form-field>\n                <input\n                  matInput\n                  placeholder='github link'\n                  formControlName='github'\n                  >\n              </mat-form-field>\n            <button mat-raised-button\n                color='primary'\n                type='submit'>\n              Save Post</button>\n      </form>\n    </mat-card>\n  </div>\n"
 
 /***/ }),
 
@@ -662,6 +662,9 @@ var ConsoleComponent = /** @class */ (function () {
             title: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
                 validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
             }),
+            thumbNail: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+            }),
             languages: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
                 validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
             }),
@@ -675,6 +678,15 @@ var ConsoleComponent = /** @class */ (function () {
                 validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
             }),
             design: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+            }),
+            techImg: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+            }),
+            designImg: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
+                validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+            }),
+            projectImg: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
                 validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
             }),
             code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
@@ -712,7 +724,11 @@ var ConsoleComponent = /** @class */ (function () {
                         future: projectData.future,
                         github: projectData.github,
                         image: projectData.image,
-                        languages: projectData.languages
+                        languages: projectData.languages,
+                        projectImg: projectData.projectImg,
+                        techImg: projectData.techImg,
+                        thumbNail: projectData.thumbNail,
+                        designImg: projectData.designImg
                     };
                     console.log(_this.project);
                     _this.form.setValue({
@@ -725,7 +741,11 @@ var ConsoleComponent = /** @class */ (function () {
                         future: projectData.future,
                         github: projectData.github,
                         image: projectData.image,
-                        languages: projectData.languages
+                        languages: projectData.languages,
+                        projectImg: projectData.projectImg,
+                        techImg: projectData.techImg,
+                        thumbNail: projectData.thumbNail,
+                        designImg: projectData.designImg
                     });
                 });
             }
@@ -751,7 +771,11 @@ var ConsoleComponent = /** @class */ (function () {
             code: this.form.value.code,
             future: this.form.value.future,
             github: this.form.value.github,
-            image: 'scrn1.png'
+            image: 'scrn1.png',
+            projectImg: this.form.value.projectImg,
+            thumbNail: this.form.value.thumbNail,
+            techImg: this.form.value.techImg,
+            designImg: this.form.value.designImg
         };
         console.log(this.project);
         if (this.mode === 'create') {
@@ -1024,22 +1048,60 @@ module.exports = "<app-header></app-header>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectSingleComponent", function() { return ProjectSingleComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _projects_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../projects.service */ "./src/app/projects/projects.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var ProjectSingleComponent = /** @class */ (function () {
-    function ProjectSingleComponent() {
+    function ProjectSingleComponent(projectsService, route) {
+        this.projectsService = projectsService;
+        this.route = route;
     }
+    ProjectSingleComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.paramMap.subscribe(function (paramMap) {
+            if (paramMap.has('projectId')) {
+                _this.projectId = paramMap.get('projectId');
+                _this.projectsService.getProject(_this.projectId).subscribe(function (projectData) {
+                    /*load this project to be viewed*/
+                    _this.project = {
+                        title: projectData.title,
+                        type: projectData.type,
+                        _id: projectData._id,
+                        tagline: projectData.tagline,
+                        overview: projectData.overview,
+                        design: projectData.design,
+                        code: projectData.code,
+                        future: projectData.future,
+                        github: projectData.github,
+                        image: projectData.image,
+                        languages: projectData.languages,
+                        projectImg: projectData.projectImg,
+                        techImg: projectData.techImg,
+                        thumbNail: projectData.thumbNail,
+                        designImg: projectData.designImg
+                    };
+                });
+            }
+        });
+    };
     ProjectSingleComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-project-single',
             template: __webpack_require__(/*! ./project-single.component.html */ "./src/app/projects/project-single/project-single.component.html"),
             styles: [__webpack_require__(/*! ./project-single.component.css */ "./src/app/projects/project-single/project-single.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_projects_service__WEBPACK_IMPORTED_MODULE_2__["ProjectsService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
     ], ProjectSingleComponent);
     return ProjectSingleComponent;
 }());
@@ -1055,7 +1117,7 @@ var ProjectSingleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "a {\n  margin-top: 20px;\n  margin-left: 0\n}\n\nimg {\n  max-width: 20%;\n  max-height:100%;\n  margin-top: 10px;\n  min-width: 50px;\n}\n\na:hover {\n  opacity: 0.5;\n  text-decoration: none\n}\n\na p {\n  color: black;\n  font-size: 100%\n}\n\np {\n  margin: 0;\n  text-align: center\n}\n\n.icons-container {\n  margin: auto;\n  width: 50%;\n  align-items: center;\n  align-self: center;\n  text-align: center;\n  display: flex;\n}\n"
+module.exports = "a {\n  margin-top: 20px;\n  margin-left: 0;\n}\n\nimg {\n  max-width: 20%;\n  max-height:100%;\n  margin-top: 10px;\n  min-width: 50px;\n}\n\na:hover {\n  opacity: 0.5;\n  text-decoration: none\n}\n\na p {\n  color: black;\n  font-size: 100%\n}\n\np {\n  margin: 0;\n  text-align: center\n}\n\n.icons-container {\n  margin: auto;\n  width: 50%;\n  align-items: center;\n  align-self: center;\n  text-align: center;\n  display: flex;\n  margin-bottom: 0px;\n  margin-top: 0px;\n}\n\n.activated {\n  border-bottom: 3px solid;\n  height: 100%\n}\n\n.inner-div {\n  max-width: 100px\n}\n"
 
 /***/ }),
 
@@ -1066,7 +1128,7 @@ module.exports = "a {\n  margin-top: 20px;\n  margin-left: 0\n}\n\nimg {\n  max-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='icons-container'>\n  <a RouterLink='projects/mobile'>\n    <p>Mobile</p>\n    <img src='https://image.flaticon.com/icons/svg/35/35375.svg' alt='Mobile Projects'>\n  </a>\n  <a href='projects/web' (mouseenter)='showText($event)'>\n    <p>Web and Misc.</p>\n    <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEX///8AAACxsbFdXV1xcXHDw8NAQECjo6PV1dUvLy9KSkr4+Pj8/Py1tbXR0dG6urrd3d16enpnZ2eTk5Pp6enx8fGdnZ1PT0/j4+ONjY0fHx9UVFTIyMgZGRmEhIQNDQ0pKSk4ODhsbGyx9cs+AAAEg0lEQVR4nO2daXuqMBBGxQ0XtCLiUrfq//+RF1xCgLDDnRl9z4c+rMmcFhKShtDrAQDA/2LjrQefxNrbxAUX1ufxowvuqaPpBP2veKAOphO2muGaOphOcDXDAXUwnTCEoXi+1NBd9KWzcHMNF2Wef5izyDXsk8XVHn0YigeG8oGhfGAoHxjKB4bygaF8YGhgPuLKvB3Di8WXQxuGnAWNilUN5zSRlyZ9oVY1PNEEXppTY8MRTeClGcEQht9keN3N+LC7dmA4Tu2iZAxDGEbAkAgYwlADhkTAEIYaMCQChjDUgCERMIShBgyJgCEMNWBIBAxhqAFDIpgbbj2v6cAd3oYbK/5uYB14G4YhrBqmwdswzK1pGrwNE5nXgrXh0kq8Z10H1oZekJjfNBFuhnNHW7m90nKMIwtLwstw71qaoR+k5YULjuXua6fJyXC0C07WDH+C1WW44AQLu3SA5WBj6G+fJ2uGd+tVVzjPXdta9yQTw8n9fbJmGKytHwvOe+d9Uj1pFoaL2/vU5333ZBLl4qn9t8rvH9MbbqKpNsaxyi+8bNWUHD8qUOuwSSeSA7XhMnrB3008gc4sa6qtrtS75dZgWSEHUkPH/nuf82sn67xwUPUlvsX+fR/+Zzu9khAa7qOR78f0COVHcqnNp6M651KyiiQzHM2iWI03VnhRGjZvot/LrFQVSWS4PavrrZ9xvQVHDIw7nL66ts8lmsdEhu9D15llRjhdk521c6kmAirOitLwnPeQYgcH5Nxp/usqKM6K1PCQoxAUKb85CewPEgwDjlmFRfigdsnYF2SlitTirKhKGjW+/Lw1Nv5OxpAezKNi6sq3pHk1lV7pG7rTwjrBqL4aqvPKNah41PjjVG9MUCHsDOdoj6fsa/wQpz9VAXuxctXYFbyJmhjTrFo0DfmTdzTFnV43GrqCM44shNowqNk8VepEzzfJrmDtOebqVWvq0xv24nfXc0si17w7tggWhnrj7/FXTHQFq16MZBOyDEwMo8bfwzDRFfw0TDchS8HGMOA0eBve4omEhgNDE7IUnAwffTahoeoKfuFU7ZvR4WUYyIQ/wrnwJqmtNeFm+EB1BbcBS0Pr3RXcBhwNJ8bk68LRMNYV3BiOhomu4IYwNAzriuzmfWUYGjq+7zepHhIwNGwZGMJQA4ZEwBCGGjAkAoYw1IAhETCEoQYMiYAhDDVgSAQMYagBQyJgCEMNGBLRheF1yokuZkpmCgxh+A2G3L/+kB52W9XQMSfMhvTYgMpfYdnSRF4SwytG1b+kY9PEXgpTvHW+97Sa8MQ8thhftJIPDOUDQ/nAUD4wlA8M5QND+cBQPvmGlWekYsgi13Boy2eYa/hRwFA+32V4Lz5cIK5m6BUfLhC9P3xDHUwnxOYS4f4/tDokpmvwbXfYNdHd3nlWQ7fedBtNUYYUmf8P5jAUDwzlA0P5wFA+MJQPDOUDQ/nAUD4wlA8M5QND+cBQPjCUDwzl8/mGjnzDfgHKcFFwILVIJlZbUItkAkMYwpAeGMKQv+Fu0A5HahEAAKjGP9+CdQc3In5yAAAAAElFTkSuQmCC' alt='Web Applications'>\n  </a>\n</div>\n"
+module.exports = "<div class='icons-container'>\n  <div [ngClass]=\"{'activated': currentlySelected=='Mobile'}\"\n       [@activeType]=\"State\"   (click)=\"toggleState()\"\n  >\n      <a  >\n          <p  >Mobile</p>\n          <img  (click)='setType(\"Mobile\")'  src='https://image.flaticon.com/icons/svg/35/35375.svg' alt='Mobile Projects'>\n        </a>\n  </div>\n  <div style=\"height: 100%\"[ngClass]=\"{'activated': currentlySelected=='Web'}\" >\n      <a  (click)='setType(\"Web\")' >\n          <p  >Web and Misc.</p>\n          <img  src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEX///8AAACxsbFdXV1xcXHDw8NAQECjo6PV1dUvLy9KSkr4+Pj8/Py1tbXR0dG6urrd3d16enpnZ2eTk5Pp6enx8fGdnZ1PT0/j4+ONjY0fHx9UVFTIyMgZGRmEhIQNDQ0pKSk4ODhsbGyx9cs+AAAEg0lEQVR4nO2daXuqMBBGxQ0XtCLiUrfq//+RF1xCgLDDnRl9z4c+rMmcFhKShtDrAQDA/2LjrQefxNrbxAUX1ufxowvuqaPpBP2veKAOphO2muGaOphOcDXDAXUwnTCEoXi+1NBd9KWzcHMNF2Wef5izyDXsk8XVHn0YigeG8oGhfGAoHxjKB4bygaF8YGhgPuLKvB3Di8WXQxuGnAWNilUN5zSRlyZ9oVY1PNEEXppTY8MRTeClGcEQht9keN3N+LC7dmA4Tu2iZAxDGEbAkAgYwlADhkTAEIYaMCQChjDUgCERMIShBgyJgCEMNWBIBAxhqAFDIpgbbj2v6cAd3oYbK/5uYB14G4YhrBqmwdswzK1pGrwNE5nXgrXh0kq8Z10H1oZekJjfNBFuhnNHW7m90nKMIwtLwstw71qaoR+k5YULjuXua6fJyXC0C07WDH+C1WW44AQLu3SA5WBj6G+fJ2uGd+tVVzjPXdta9yQTw8n9fbJmGKytHwvOe+d9Uj1pFoaL2/vU5333ZBLl4qn9t8rvH9MbbqKpNsaxyi+8bNWUHD8qUOuwSSeSA7XhMnrB3008gc4sa6qtrtS75dZgWSEHUkPH/nuf82sn67xwUPUlvsX+fR/+Zzu9khAa7qOR78f0COVHcqnNp6M651KyiiQzHM2iWI03VnhRGjZvot/LrFQVSWS4PavrrZ9xvQVHDIw7nL66ts8lmsdEhu9D15llRjhdk521c6kmAirOitLwnPeQYgcH5Nxp/usqKM6K1PCQoxAUKb85CewPEgwDjlmFRfigdsnYF2SlitTirKhKGjW+/Lw1Nv5OxpAezKNi6sq3pHk1lV7pG7rTwjrBqL4aqvPKNah41PjjVG9MUCHsDOdoj6fsa/wQpz9VAXuxctXYFbyJmhjTrFo0DfmTdzTFnV43GrqCM44shNowqNk8VepEzzfJrmDtOebqVWvq0xv24nfXc0si17w7tggWhnrj7/FXTHQFq16MZBOyDEwMo8bfwzDRFfw0TDchS8HGMOA0eBve4omEhgNDE7IUnAwffTahoeoKfuFU7ZvR4WUYyIQ/wrnwJqmtNeFm+EB1BbcBS0Pr3RXcBhwNJ8bk68LRMNYV3BiOhomu4IYwNAzriuzmfWUYGjq+7zepHhIwNGwZGMJQA4ZEwBCGGjAkAoYw1IAhETCEoQYMiYAhDDVgSAQMYagBQyJgCEMNGBLRheF1yokuZkpmCgxh+A2G3L/+kB52W9XQMSfMhvTYgMpfYdnSRF4SwytG1b+kY9PEXgpTvHW+97Sa8MQ8thhftJIPDOUDQ/nAUD4wlA8M5QND+cBQPvmGlWekYsgi13Boy2eYa/hRwFA+32V4Lz5cIK5m6BUfLhC9P3xDHUwnxOYS4f4/tDokpmvwbXfYNdHd3nlWQ7fedBtNUYYUmf8P5jAUDwzlA0P5wFA+MJQPDOUDQ/nAUD4wlA8M5QND+cBQPjCUDwzl8/mGjnzDfgHKcFFwILVIJlZbUItkAkMYwpAeGMKQv+Fu0A5HahEAAKjGP9+CdQc3In5yAAAAAElFTkSuQmCC' alt='Web Applications'>\n        </a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1081,25 +1143,56 @@ module.exports = "<div class='icons-container'>\n  <a RouterLink='projects/mobil
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectsHeaderComponent", function() { return ProjectsHeaderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
+/* harmony import */ var _projects_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../projects.service */ "./src/app/projects/projects.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var ProjectsHeaderComponent = /** @class */ (function () {
-    function ProjectsHeaderComponent() {
+    function ProjectsHeaderComponent(projectsService) {
+        this.projectsService = projectsService;
         this.hideText = true;
+        this.currentlySelected = 'Mobile';
+        this.State = 'inactive';
     }
-    ProjectsHeaderComponent.prototype.showText = function (event) {
+    ProjectsHeaderComponent.prototype.setType = function (type) {
+        console.log(type);
+        this.currentlySelected = type;
+        this.projectsService.setType(type);
+    };
+    ProjectsHeaderComponent.prototype.toggleState = function () {
+        this.State = this.State === 'active' ? 'inactive' : 'active';
     };
     ProjectsHeaderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-projects-header',
             template: __webpack_require__(/*! ./projects-header.component.html */ "./src/app/projects/projects-header/projects-header.component.html"),
-            styles: [__webpack_require__(/*! ./projects-header.component.css */ "./src/app/projects/projects-header/projects-header.component.css")]
-        })
+            styles: [__webpack_require__(/*! ./projects-header.component.css */ "./src/app/projects/projects-header/projects-header.component.css")],
+            animations: [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('activeType', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('inactive', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        backgroundColor: '#eee',
+                        transform: 'scale(1)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('active', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        backgroundColor: '#cfd8dc',
+                        transform: 'scale(1.2)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('inactive => active', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('100ms ease-in')),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('active => inactive', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('100ms ease-out'))
+                ])
+            ]
+        }),
+        __metadata("design:paramtypes", [_projects_service__WEBPACK_IMPORTED_MODULE_2__["ProjectsService"]])
     ], ProjectsHeaderComponent);
     return ProjectsHeaderComponent;
 }());
@@ -1115,7 +1208,7 @@ var ProjectsHeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n      align-self: center;\n  margin: auto\n}\n\na {\n  text-decoration: none;\n  color: rgb(46, 11, 46)\n}\n\nimg {\n  max-width: 70%;\n  display: block;\n  margin-left: 10px;\n  margin-right: 10px;\n}\n\n.outer-div {\n  padding: 5%;\n  padding-top: 0px;\n  text-align: center;\n  margin: 0;\n  margin-bottom: 5px;\n}\n\n.inner-div {\n  border-radius: 5px;\n  display: inline-block;\n  padding: 10%;\n  width: 80%;\n  box-shadow: 0 8px 6px -6px black;\n}\n\n.header-div {\n  float: left;\n  text-align: left;\n  margin: 0px;\n  padding: 0px;\n  width: 50%;\n}\n\n.header-div img {\n  width: 45%;\n  min-width: 100px;\n  float: center;\n  margin: 0px;\n  padding: 0px;\n}\n\n.tagline-div {\n  font-size: 15px;\n}\n\n.body-div h1 {\n  margin-bottom: 20px;\n  font-size: 30px;\n}\n\n.body-div {\n  float: right;\n  text-align: left;\n  width: 50%;\n  margin-left: 0px\n}\n\n.languages-div {\n  background-color: rgb(96, 87, 221);\n  color: white;\n  border-radius: 5px;\n  font-size: 14px;\n  padding: 5px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.learn-div {\n  background-color: rgb(156, 58, 96);\n  color: white;\n  border-radius: 5px;\n  font-size: 15px;\n  padding:10px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.github-link {\n  background-color: rgb(156, 58, 96);\n  color: white;\n  border-radius: 5px;\n  font-size: 15px;\n  padding:10px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.languages-outer-div {\n  background-color: white;\n  margin-bottom: 13px;\n  display: flex;\n  padding: 0px;\n}\n\n.options-div {\n  background-color: white;\n  margin: 10px;\n  display: flex;\n  padding: 10px;\n}\n"
+module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n      align-self: center;\n  margin: auto\n}\n\na {\n  text-decoration: none;\n  color: rgb(46, 11, 46)\n}\n\nimg {\n  max-width: 70%;\n  display: block;\n  margin: auto;\n}\n\n.outer-div {\n  padding: 5%;\n  padding-top: 0px;\n  text-align: center;\n  margin: 0;\n  margin-bottom: 5px;\n}\n\n.inner-div {\n  border-radius: 5px;\n  display: inline-block;\n  padding: 10%;\n  width: 80%;\n  box-shadow: 0 8px 6px -6px black;\n}\n\n.header-div {\n  float: left;\n  text-align: left;\n  margin: 0px;\n  padding: 0px;\n  width: 50%;\n}\n\n.header-div img {\n  width: 40%;\n  min-width: 100px;\n  float: center;\n  margin: 0px;\n  padding: 0px;\n}\n\n.tagline-div {\n  font-size: 15px;\n}\n\n.body-div h1 {\n  margin-bottom: 20px;\n  font-size: 30px;\n}\n\n.body-div {\n  float: right;\n  text-align: left;\n  width: 50%;\n  margin-left: 0px\n}\n\n.languages-div {\n  background-color: rgb(96, 87, 221);\n  color: white;\n  border-radius: 5px;\n  font-size: 14px;\n  padding: 5px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.learn-div {\n  background-color: rgb(156, 58, 96);\n  color: white;\n  border-radius: 5px;\n  font-size: 15px;\n  padding:10px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.github-link {\n  background-color: rgb(156, 58, 96);\n  color: white;\n  border-radius: 5px;\n  font-size: 15px;\n  padding:10px;\n  text-align: center;\n  width: 70%;\n  margin: 10px;\n}\n\n.languages-outer-div {\n  background-color: white;\n  margin-bottom: 13px;\n  display: flex;\n  padding: 0px;\n}\n\n.options-div {\n  background-color: white;\n  margin: 10px;\n  display: flex;\n  padding: 10px;\n}\n"
 
 /***/ }),
 
@@ -1126,7 +1219,7 @@ module.exports = "mat-card {\n  width: 50%;\n  -ms-grid-row-align: center;\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card *ngIf='webProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div class='outer-div' *ngIf='webProjects.length > 0'>\n  <div class='inner-div' *ngFor='let project of webProjects'>\n    <div class='header-div'>\n        <img src='assets/scrn1.png' alt='Title Picture' >\n    </div>\n    <div class='body-div'>\n\n        <h1>{{project.title}}</h1>\n        <p class='tagline-div'>{{project.tagline}}</p>\n        <div class='languages-outer-div' >\n            <p class='languages-div' *ngFor='let language of project.languages.split(\" \")' >{{language}}</p>\n        </div>\n        <div class='option-div'>\n            <a class='learn-div' [routerLink]=\"['/projects', project._id]\">Learn More</a>\n            <a href='{{project.github}}' class='github-link'>See Code</a>\n        </div>\n\n    </div>\n    <div *ngIf='userIsAuthenticated'>\n      <a mat-button color='primary' [routerLink]=\"['/edit', project._id]\">Edit</a>\n      <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<mat-card *ngIf='webProjects.length == 0 && mobileProjects.length == 0'>\n  <mat-card-title>\n    Still Under construction!\n  </mat-card-title>\n  <mat-card-header>\n    <a href='https://github.com/tjb295/PortfolioSite'>\n      Feel free to check out the progress on GitHub!\n    </a>\n  </mat-card-header>\n  <img mat-card-image src=\"https://png.icons8.com/metro/1600/under-construction.png\" alt=\"Coming Soon!\">\n</mat-card>\n<div class='outer-div' *ngIf='webProjects.length > 0 || mobileProjects.length > 0'>\n  <div *ngIf=\"currentProjectType=='Mobile'\">\n      <div class='inner-div' *ngFor='let project of mobileProjects'>\n          <div class='header-div'>\n              <img src='assets/scrn1.png' alt='Title Picture' >\n          </div>\n          <div class='body-div'>\n\n              <h1>{{project.title}}</h1>\n              <p class='tagline-div'>{{project.tagline}}</p>\n              <div class='languages-outer-div' >\n                  <p class='languages-div' *ngFor='let language of project.languages.split(\" \")' >{{language}}</p>\n              </div>\n              <div class='option-div'>\n                  <a class='learn-div' [routerLink]=\"['/projects', project._id]\">Learn More</a>\n                  <a href='{{project.github}}' class='github-link'>See Code</a>\n              </div>\n\n          </div>\n          <div *ngIf='userIsAuthenticated'>\n            <a mat-button color='primary' [routerLink]=\"['/edit', project._id]\">Edit</a>\n            <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>\n          </div>\n        </div>\n  </div>\n  <div *ngIf=\"currentProjectType=='Web'\">\n      <div class='inner-div' *ngFor='let project of webProjects'>\n          <div class='header-div'>\n              <img src='assets/scrn1.png' alt='Title Picture' >\n          </div>\n          <div class='body-div'>\n\n              <h1>{{project.title}}</h1>\n              <p class='tagline-div'>{{project.tagline}}</p>\n              <div class='languages-outer-div' >\n                  <p class='languages-div' *ngFor='let language of project.languages.split(\" \")' >{{language}}</p>\n              </div>\n              <div class='option-div'>\n                  <a class='learn-div' [routerLink]=\"['/projects', project._id]\">Learn More</a>\n                  <a href='{{project.github}}' class='github-link'>See Code</a>\n              </div>\n\n          </div>\n          <div *ngIf='userIsAuthenticated'>\n            <a mat-button color='primary' [routerLink]=\"['/edit', project._id]\">Edit</a>\n            <button mat-button color='warn' (click)='onDelete(project._id)'>Delete</button>\n          </div>\n        </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1159,7 +1252,7 @@ var ProjectsComponent = /** @class */ (function () {
     function ProjectsComponent(projectsService, authService) {
         this.projectsService = projectsService;
         this.authService = authService;
-        this.currentProjectType = 'web';
+        this.currentProjectType = 'Mobile';
         /*Gonna need to load in the projects somehow*/
         this.webProjects = [];
         this.mobileProjects = [];
@@ -1183,6 +1276,12 @@ var ProjectsComponent = /** @class */ (function () {
         this.authStatusSub = this.authService.getAuthStatusListener().subscribe(function (isAuthenticated) {
             _this.userIsAuthenticated = isAuthenticated;
         });
+        /*listener for type of project to display*/
+        this.projectTypeSub = this.projectsService.getTypeStatusListener()
+            .subscribe(function (projectType) {
+            console.log(projectType + ' in sub');
+            _this.currentProjectType = projectType;
+        });
     };
     ProjectsComponent.prototype.onDelete = function (projectId) {
         var _this = this;
@@ -1190,11 +1289,13 @@ var ProjectsComponent = /** @class */ (function () {
         /*Call our service to make delete request*/
         this.projectsService.deleteProject(projectId).subscribe(function () {
             _this.projectsService.getWebPosts();
+            _this.projectsService.getMobilePosts();
         });
     };
     ProjectsComponent.prototype.ngOnDestroy = function () {
         this.webProjectsSub.unsubscribe();
         this.mobileProjectsSub.unsubscribe();
+        this.projectTypeSub.unsubscribe();
     };
     ProjectsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1258,6 +1359,7 @@ var ProjectsService = /** @class */ (function () {
         this.mobileProjects = [];
         this.webProjectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
         this.mobileProjectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.typeStatusListener = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
         /*create subject for recieving from db*/
         this.projectsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
     }
@@ -1322,6 +1424,13 @@ var ProjectsService = /** @class */ (function () {
     ProjectsService.prototype.getMobilePostsUpdateListener = function () {
         return this.mobileProjectsUpdated.asObservable();
     };
+    /*Subject to listen for type change*/
+    ProjectsService.prototype.getTypeStatusListener = function () {
+        return this.typeStatusListener.asObservable();
+    };
+    ProjectsService.prototype.setType = function (type) {
+        this.typeStatusListener.next(type);
+    };
     ProjectsService.prototype.addProject = function (project, image) {
         var _this = this;
         /*Form Data for appending*/
@@ -1340,6 +1449,11 @@ var ProjectsService = /** @class */ (function () {
         projectData.append('code', project.code);
         projectData.append('github', project.github);
         projectData.append('image', project.image);
+        projectData.append('projectImg', project.projectImg);
+        projectData.append('techImg', project.techImg);
+        projectData.append('thumbNail', project.thumbNail);
+        console.log(project.thumbNail);
+        projectData.append('designImg', project.designImg);
         console.log(projectData);
         this.http.post('/api/projects', project)
             .subscribe(function (responseData) {
@@ -1370,6 +1484,10 @@ var ProjectsService = /** @class */ (function () {
             projectData.append('code', project.code);
             projectData.append('github', project.github);
             projectData.append('image', image);
+            projectData.append('projectImg', project.projectImg);
+            projectData.append('techImg', project.techImg);
+            projectData.append('thumbNail', project.thumbNail);
+            projectData.append('designImg', project.designImg);
         }
         else {
             projectData = __assign({}, project, { image: image });
@@ -1403,7 +1521,7 @@ var ProjectsService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  color:darkgray\n}\n\nmat-card-title {\n  font-size: 25pt\n}\n\n.profile-img {\n  border-radius: 50%;\n  border-width: 10px;\n  border-color: black;\n  width: 70%;\n  height: 70%\n\n}\n\nmat-card {\n  width: 100%;\n  height: 100%;\n}\n\nmat-card-title {\n  margin: auto\n}\n\n.description {\n  overflow: scroll\n}\n\nmat-expansion-panel {\n  overflow: hidden\n}\n\n/* a img {\n  height: 100px;\n  width: 70px;\n} */\n\n.resume {\n  border-radius: 0%;\n  width: 20%;\n}\n\na {\n  width: 10%;\n  margin-left: 100px\n}\n\na :hover {\n  opacity: .5\n}\n\np {\n  font-size: 1rem\n}\n"
+module.exports = "h1 {\n  color:darkgray\n}\n\nmat-card-title {\n  font-size: 25pt\n}\n\n.profile-img {\n  border-radius: 50%;\n  border-width: 10px;\n  border-color: black;\n  width: 70%;\n  height: 70%\n\n}\n\nmat-card {\n  width: 100%;\n  height: 100%;\n}\n\nmat-card-title {\n  margin: auto\n}\n\n.description {\n  overflow: scroll\n}\n\nmat-expansion-panel {\n  overflow: hidden\n}\n\n/* a img {\n  height: 100px;\n  width: 70px;\n} */\n\n.resume {\n  border-radius: 0%;\n  width: 20%;\n}\n\na {\n  width: 10%;\n  margin-left: 100px\n}\n\na :hover {\n  opacity: .5\n}\n\np {\n  font-size: 1rem\n}\n\nhr {\n  margin: 0px;\n}\n"
 
 /***/ }),
 

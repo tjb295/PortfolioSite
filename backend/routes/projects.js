@@ -49,7 +49,11 @@ router.post('', multer({storage: storage}).single("image"), (req, res, next) => 
     code: req.body.code,
     future: req.body.future,
     github: req.body.github,
-    image: '/images/' + req.body.image
+    image: req.body.image,
+    projectImg: req.body.projectImg,
+    thumbNail: req.body.thumbNail,
+    techImg: req.body.techImg,
+    designImg: req.body.designImg
   });
 
 
@@ -68,7 +72,11 @@ router.post('', multer({storage: storage}).single("image"), (req, res, next) => 
         code: createdProject.code,
         future: createdProject.future,
         _id: createdProject._id,
-        github: createdProject.github
+        github: createdProject.github,
+        projectImg: createdProject.projectImg,
+        thumbNail: createdProject.thumbNail,
+        techImg: createdProject.techImg,
+        designImg: createdProject.designImg
       }
     });
   });
@@ -119,7 +127,11 @@ router.put('/:id', multer({storage:storage}).single("image"), (req,res,next) => 
     code: req.body.code,
     future: req.body.future,
     github: req.body.github,
-    image: '/images/' + req.body.image
+    image: req.body.image,
+    projectImg: + req.body.projectImg,
+    thumbNail: + req.body.thumbNail,
+    techImg: + req.body.techImg,
+    designImg: + req.body.designImg
   });
 
   Project.update({_id: req.params.id}, project)

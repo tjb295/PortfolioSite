@@ -62,7 +62,34 @@
         <div class='image-preview' *ngIf="imagePreview !== '' && imagePreview">
           <img [src]='imagePreview' [alt]='form.value.title'>
         </div>
-
+        <mat-form-field>
+          <input
+            matInput
+            placeholder='thumbnail'
+            formControlName='thumbNail'
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              matInput
+              placeholder='design images'
+              formControlName='designImg'
+              >
+          </mat-form-field>
+          <mat-form-field>
+              <input
+                matInput
+                placeholder='projectImg'
+                formControlName='projectImg'
+                >
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                  matInput
+                  placeholder='techImg'
+                  formControlName='techImg'
+                  >
+              </mat-form-field>
         <mat-form-field>
           <textarea
             matInput
