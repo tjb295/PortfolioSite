@@ -13,7 +13,7 @@
   <div *ngIf="currentProjectType=='Mobile'">
       <div class='inner-div' *ngFor='let project of mobileProjects'>
           <div class='header-div'>
-              <img src='assets/scrn1.png' alt='Title Picture' >
+              <img src="assets/{{project.thumbNail}}" alt='Title Picture' >
           </div>
           <div class='body-div'>
 
@@ -37,7 +37,7 @@
   <div *ngIf="currentProjectType=='Web'">
       <div class='inner-div' *ngFor='let project of webProjects'>
           <div class='header-div'>
-              <img src='assets/scrn1.png' alt='Title Picture' >
+              <img src="assets/{{project.thumbNail}}" alt='Title Picture' >
           </div>
           <div class='body-div'>
 

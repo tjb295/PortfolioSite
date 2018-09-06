@@ -41,7 +41,8 @@ export class ProjectsService {
               future: project.future,
               design: project.design,
               code: project.code,
-              github: project.github
+              github: project.github,
+              thumbNail: project.thumbNail
             };
           })
         };
@@ -63,14 +64,15 @@ export class ProjectsService {
             return {
               _id: project._id,
               title: project.title,
-              type: 'Web',
+              type: 'Mobile',
               languages: project.languages,
               tagline: project.tagline,
               overview: project.overview,
               future: project.future,
               design: project.design,
               code: project.code,
-              github: project.github
+              github: project.github,
+              thumbNail: project.thumbNail
             };
           })
         };

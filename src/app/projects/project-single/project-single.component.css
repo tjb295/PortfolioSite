@@ -1,0 +1,67 @@
+
+.projectTitle {
+  border-right-color: black;
+  border-right-width: 2px;
+  margin: auto;
+  width: 50%;
+  float: left
+}
+.projectTagline {
+  float: left
+}
+
+.header-div {
+  display: inline
+}
+
+.projectThumbnail {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  position: 50%
+}
+
+
+.outer-div {
+  display: block;
+  width: 70%;
+  margin-top: 20px;
+  margin: auto;
+  padding-top: 70px;
+  margin-top: 30px;
+
+}
+
+.overview-div {
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.header-left {
+  float: left;
+  border-right: 3px solid;
+  width: 20%;
+}
+
+.header-right {
+  float: right;
+  width: 70%
+}
+
+.exImg {
+  margin: auto;
+  display: inline
+}
+.exImg img {
+   margin: 10px;
+   display: inline
+ }
+
+.techImgs {
+  display: inline;
+}
+
+.techImgs img {
+  width: 150px;
+}

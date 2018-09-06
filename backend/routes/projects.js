@@ -128,10 +128,10 @@ router.put('/:id', multer({storage:storage}).single("image"), (req,res,next) => 
     future: req.body.future,
     github: req.body.github,
     image: req.body.image,
-    projectImg: + req.body.projectImg,
-    thumbNail: + req.body.thumbNail,
-    techImg: + req.body.techImg,
-    designImg: + req.body.designImg
+    projectImg: req.body.projectImg,
+    thumbNail: req.body.thumbNail,
+    techImg: req.body.techImg,
+    designImg: req.body.designImg
   });
 
   Project.update({_id: req.params.id}, project)

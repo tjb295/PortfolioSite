@@ -1,1 +1,96 @@
 <app-header></app-header>
+<div class="outer-div">
+  <hr>
+  <div class="header-div">
+
+    <div>
+
+        <div class="projectTitle">
+          <div style="border-bottom: 3px solid">
+              <h1>{{project.title}}</h1>
+          </div>
+
+
+            <div class="projectTagline">
+              <p>
+                  {{project.tagline}}
+                </p>
+          </div>
+        </div>
+
+        <div class="projectThumbnail">
+            <img style="padding-left: 50px; width: 40%" src="assets/{{project.thumbNail}}" alt="thumbnail">
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class="exImg"  *ngFor="let projimg of project.projectImg.split(' ')">
+    <img style="width: 30%; max-width: 250px" src="assets/{{projimg}}" >
+  </div>
+  <div class="overview-div">
+    <div class="header-left">
+        <h1>
+            Overview
+        </h1>
+    </div>
+    <div class="header-right">
+        <p>
+            {{project.overview}}
+        </p>
+    </div>
+
+
+  </div>
+  <div class="overview-div">
+    <div class="header-left">
+        <h1>
+            Design
+        </h1>
+    </div>
+    <div class="header-right">
+        <p>
+            {{project.design}}
+        </p>
+    </div>
+    <div class="overview-div">
+        <div class="header-left">
+            <h1>
+                Technologies Used
+            </h1>
+        </div>
+        <div style="float:right; width: 70%">
+            <div class="techImgs" *ngFor="let tech of project.techImg.split(' ')" >
+                <img src="assets/{{tech}}">
+            </div>
+        </div>
+
+  </div>
+  <div>
+    <div class="overview-div">
+        <div class="header-left">
+            <h1>
+                Code
+            </h1>
+        </div>
+        <div class="header-right">
+          <p>
+              {{project.code}}
+          </p>
+    </div>
+  </div>
+  <div>
+      <div class="overview-div">
+          <div class="header-left">
+              <h1>
+                  Future
+              </h1>
+          </div>
+          <div class="header-right">
+              <p>
+                  {{project.future}}
+              </p>
+          </div>
+  </div>
+</div>

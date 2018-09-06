@@ -1,7 +1,5 @@
 <div class='icons-container'>
-  <div [ngClass]="{'activated': currentlySelected=='Mobile'}"
-       [@activeType]="State"   (click)="toggleState()"
-  >
+  <div [ngClass]="{'activated': currentlySelected=='Mobile'}">
       <a  >
           <p  >Mobile</p>
           <img  (click)='setType("Mobile")'  src='https://image.flaticon.com/icons/svg/35/35375.svg' alt='Mobile Projects'>

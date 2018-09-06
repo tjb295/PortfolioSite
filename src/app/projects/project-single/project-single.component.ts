@@ -11,7 +11,7 @@ import { Project } from '../project.model';
 })
 export class ProjectSingleComponent {
   private projectId: string;
-  private project: Project;
+  public project: Project;
 
   constructor(private projectsService: ProjectsService, public route: ActivatedRoute) {}
 
@@ -19,6 +19,7 @@ export class ProjectSingleComponent {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('projectId')) {
         this.projectId = paramMap.get('projectId');
+        console.log('projectId');
         this.projectsService.getProject(this.projectId).subscribe(projectData => {
           /*load this project to be viewed*/
           this.project = {
